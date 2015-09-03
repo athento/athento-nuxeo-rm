@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:procedenciaids="http://rm.administracion.es/emrm/entidad/relacion/procedencia/ids"
+	targetNamespace="http://rm.administracion.es/emrm/entidad/relacion/procedencia/ids">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD EMrm aplicables a
+			la PROCEDENCIA y DESTINO de relaciones.
+		</xsd:documentation>
+	</xsd:annotation>
+
+
+	<xsd:element name="IdrmOrigen" type="xsd:string" />
+	<xsd:element name="IdrmDestino" type="xsd:string" />
+
+</xsd:schema>

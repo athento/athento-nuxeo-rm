@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:dispositivo="http://administracionelectronica.gob.es/ENI/XSD/v1.0/dispositivos"
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/dispositivos"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">
+			Esquema que sirve para almacenar los dispositivos.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:element name="idDispositivo" type="xsd:string" />
+	<xsd:element name="nombreDispositivo" type="xsd:string" />
+
+	
+</xsd:schema>

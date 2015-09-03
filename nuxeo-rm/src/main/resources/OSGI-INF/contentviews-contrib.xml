@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="org.yerbabuena.rm.contentviews">
+
+	<extension target="org.nuxeo.ecm.core.search.service.SearchServiceImpl"
+		point="indexableDocType">
+		<indexableDocType indexAllSchemas="true" name="CalendarioDC" />
+		<indexableDocType indexAllSchemas="true" name="DocumentoRM" />
+	</extension>
+
+	<extension target="org.nuxeo.ecm.core.search.service.SearchServiceImpl"
+		point="fullTextField">
+		<fullText name="ecm:fulltext" analyzer="default"
+			blobExtractorName="nuxeoTransform">
+			<field>dublincore:title</field>
+			<field>dublincore:description</field>
+			<field>file:content</field>
+			<mimetype name="application/pdf">pdf2text</mimetype>
+			<mimetype name="application/msword">word2text_poi</mimetype>
+			<mimetype name="application/vnd.ms-powerpoint">ppt2text_poi</mimetype>
+			<mimetype name="application/vnd.ms-excel">xl2text_jr</mimetype>
+			<mimetype name="text/xml">xml2text_jr</mimetype>
+			<mimetype name="text/html">html2text_jr</mimetype>
+			<mimetype name="application/vnd.sun.xml.writer">oo2text_jr</mimetype>
+			<mimetype name="application/vnd.sun.xml.writer.template">oo2text_jr</mimetype>
+			<mimetype name="application/vnd.oasis.opendocument.text">oo2text_jr</mimetype>
+			<mimetype name="application/vnd.oasis.opendocument.text-template">oo2text_jr</mimetype>
+			<mimetype name=".*/.*">any2text</mimetype>
+		</fullText>
+	</extension>
+
+	<extension target="org.nuxeo.ecm.platform.ui.web.ContentViewService"
+		point="contentViews">
+
+		<contentView name="calendariodc_search">
+
+			<title>label.search.results</title>
+			<translateTitle>true</translateTitle>
+
+			<emptySentence>label.content.empty.search</emptySentence>
+			<translateEmptySentence>true</translateEmptySentence>
+
+			<coreQueryPageProvider>
+				<parameter>#{currentDocument.id}</parameter>
+				<property name="coreSession">#{documentManager}</property>
+				<whereClause docType="CalendarioDC">
+
+					<predicate parameter="dc:title" operator="FULLTEXT">
+						<field schema="calendariodc_search" name="dc_title" />
+					</predicate>
+
+					<fixedPart>
+						ecm:primaryType = 'CalendarioDC' AND ecm:uuid != ? AND
+						ecm:mixinType !=
+						'HiddenInNavigation' AND
+						ecm:mixinType !=
+						'Folderish' AND ecm:isCheckedInVersion = 0 AND
+						ecm:currentLifeCycleState !='deleted'
+					</fixedPart>
+				</whereClause>
+				<sort column="dc:title" ascending="true" />
+				<pageSize>20</pageSize>
+				<searchDocumentType>CalendarioDC</searchDocumentType>
+			</coreQueryPageProvider>
+			<searchLayout name="calendariodc_search" />
+
+			<showPageSizeSelector>true</showPageSizeSelector>
+			<useGlobalPageSize>true</useGlobalPageSize>
+			<refresh>
+				<event>documentChanged</event>
+				<event>documentChildrenChanged</event>
+			</refresh>
+			<cacheKey>only_one_cache</cacheKey>
+			<cacheSize>1</cacheSize>
+
+			<resultLayouts>
+				<layout name="calendariodc_document_listing" title="document_listing"
+					translateTitle="true" iconPath="/icons/document_listing_icon.png" />
+			</resultLayouts>
+
+		</contentView>
+		
+		<contentView name="busqueda_documentos_rm">
+
+			<title>label.contentview.document_content</title>
+			<translateTitle>true</translateTitle>
+			<showTitle>false</showTitle>
+
+			<genericPageProvider
+				class="es.rm.platform.api.services.DocumentoElectronicoPageProvider">
+				<property name="coreSession">#{documentManager}</property>
+				<whereClause docType="AdvancedSearch">
+					<predicate parameter="ecm:fulltext" operator="FULLTEXT">
+						<field schema="advanced_search" name="fulltext_all" />
+					</predicate>
+					<predicate parameter="dc:title" operator="FULLTEXT">
+						<field schema="advanced_search" name="title" />
+					</predicate>
+					<predicate parameter="ecm:path" operator="STARTSWITH">
+						<field schema="advanced_search" name="searchpath" />
+					</predicate>
+					<fixedPart>
+						ecm:isCheckedInVersion = 1 AND ecm:mixinType !=
+						'HiddenInNavigation'
+						AND ecm:currentLifeCycleState != 'deleted' AND
+						ecm:versionLabel !=
+						'0.0'
+					</fixedPart>
+				</whereClause>
+				<sort column="dc:title" ascending="true" />
+				<pageSize>20</pageSize>
+			</genericPageProvider>
+
+			<searchLayout name="documento_rm_referencia_search" />
+			<showFilterForm>true</showFilterForm>
+
+			<showPageSizeSelector>true</showPageSizeSelector>
+			<useGlobalPageSize>true</useGlobalPageSize>
+			<refresh>
+				<event>documentChanged</event>
+				<event>documentChildrenChanged</event>
+			</refresh>
+			<cacheKey>#{currentDocument.id}</cacheKey>
+			<cacheSize>10</cacheSize>
+
+			<resultLayouts>
+				<layout name="layout_search_rm_documents_listing" title="document_listing"
+					translateTitle="true" iconPath="/icons/document_listing_icon.png"
+					showCSVExport="true" showPDFExport="true" />
+			</resultLayouts>
+
+			<selectionList>CURRENT_SELECTION</selectionList>
+			<actions category="CURRENT_SELECTION_LIST" />
+
+		</contentView>
+
+
+	</extension>
+
+</component>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<component name="org.yerbabuena.crisa.opensocial.gadgets.theme">
+
+  <require>org.nuxeo.theme.nuxeo.default</require>
+
+  <extension target="org.nuxeo.theme.services.ThemeService" point="resources">
+  
+    <resource name="gadget-serieslist.js">
+      <path>scripts/opensocial/gadgets/serieslist.js</path>
+    </resource>
+  </extension>
+
+</component>

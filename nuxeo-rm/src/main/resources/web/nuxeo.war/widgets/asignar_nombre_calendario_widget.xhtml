@@ -1,0 +1,13 @@
+<f:subview id="#{widget.id}_add" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:nxu="http://nuxeo.org/nxweb/util"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core">
+		
+	<h:commandLink id="link_asignar"
+		value="#{asociacionCalendario.obtenerNombreCalendario(field_0)}"
+		action="#{asociacionCalendario.asociarCalendario(field_0)}"
+		reRender="tab_calendario_form, facesStatusMessagePanel"
+		onclick="if (!window.confirm('#{messages['label.confirm.asignar.calendario']}')) { return false; }" />
+
+</f:subview>

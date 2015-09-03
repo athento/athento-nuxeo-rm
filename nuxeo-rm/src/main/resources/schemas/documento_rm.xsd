@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:calasoc="http://administracionelectronica.gob.es/ENI/XSD/v1.0/rmDocumento"
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/rmDocumento"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">
+			Esquema que sirve para almacenar la referencia del documento real en el RM
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:element name="id_documento" type="xsd:string" />
+	<xsd:element name="version" type="xsd:string" />
+	<xsd:element name="inicio_vigencia" type="xsd:string" />
+	
+</xsd:schema>

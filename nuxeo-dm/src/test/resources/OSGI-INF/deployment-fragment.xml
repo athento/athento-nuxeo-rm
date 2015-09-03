@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<fragment version="1">
+	<install>
+		<unzip from="${bundle.fileName}" to="/schemas" prefix="schemas/emrm">
+			<include>schemas/emrm/**</include>
+			<include>schemas/eni/**</include>
+		</unzip>
+	</install>
+</fragment>
+

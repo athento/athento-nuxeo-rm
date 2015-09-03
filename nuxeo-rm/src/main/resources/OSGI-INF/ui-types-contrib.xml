@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="org.yerbabuena.athento.rm.ui.types">
+
+	<extension target="org.nuxeo.ecm.platform.types.TypeService"
+		point="types">
+
+
+		<!-- Carpetas de Documentos -->
+
+		<type id="Domain">
+			<subtypes>
+				<type>CalendarioDCRoot</type>
+			</subtypes>
+		</type>
+
+		<type id="FuncionMarco">
+			<subtypes>
+				<type>Funcion</type>
+			</subtypes>
+		</type>
+
+		<type id="Funcion">
+			<subtypes>
+				<type>Actividad</type>
+			</subtypes>
+		</type>
+
+		<type id="Actividad">
+			<subtypes>
+				<type>Accion</type>
+			</subtypes>
+		</type>
+		
+		<type id="Accion">
+			<subtypes>
+				<type>Expediente</type>
+			</subtypes>
+		</type>
+
+		<type id="Serie">
+			<subtypes>
+				<type>Expediente</type>
+				<!-- <type>CAdD</type> -->
+			</subtypes>
+		</type>
+
+		<!-- <type id="DocumentoRM">
+			<label>DocumentoRM</label>
+			<icon>/icons/file.gif</icon>
+			<bigIcon>/icons/file_100.png</bigIcon>
+			<category>SimpleDocument</category>
+			<description>Documento electrónico declarado en el RM</description>
+			<default-view>view_documents</default-view>
+			<create-view>crear_documento_rm</create-view>
+			<layouts mode="any">
+				<layout>heading</layout>
+			</layouts>
+			<layouts mode="view">
+				<layout>documento_rm</layout>
+			</layouts>
+		</type> -->
+		
+		<!-- <type id="Expediente">
+			<subtypes>
+				<type>DocumentoRM</type>
+			</subtypes>
+		</type> -->
+
+		<!-- <type id="CAdD">
+			<label>label.carpeta.de.documentos</label>
+			<icon>/icons/folder.gif</icon>
+			<bigIcon>/icons/folder_100.png</bigIcon>
+			<icon-expanded>/icons/folder_open.gif</icon-expanded>
+			<category>Collaborative</category>
+			<description>Carpeta de documentos</description>
+			<default-view>view_documents</default-view>
+			<subtypes>
+				<type>Expediente</type>
+				<type>CAdD</type>
+				<type>DocumentoRM</type>
+				<type>¿Agregaciones?</type>
+			</subtypes>
+			<layouts mode="any">
+				<layout>heading</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>dublincore</layout>
+			</layouts>
+			<contentViews category="content">
+				<contentView>document_content</contentView>
+			</contentViews>
+			<contentViews category="trash_content">
+				<contentView>document_trash_content
+				</contentView>
+			</contentViews>
+		</type> -->
+
+		<!-- Calendarios de Conservación -->
+
+		<type id="CalendarioDCRoot">
+			<label>label.calendarios.de.clasificacion</label>
+			<icon>/icons/calendars_root.png</icon>
+			<bigIcon>/icons/calendars_root_big.png</bigIcon>
+			<category>Collaborative</category>
+			<description>Calendarios de Clasificacion</description>
+			<default-view>view_documents</default-view>
+			<subtypes>
+				<type>CalendarioDC</type>
+			</subtypes>
+			<layouts mode="any">
+				<layout>heading</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+			</layouts>
+			<contentViews category="content">
+				<contentView>document_content</contentView>
+			</contentViews>
+			<contentViews category="trash_content">
+				<contentView>document_trash_content
+				</contentView>
+			</contentViews>
+		</type>
+
+		<type id="CalendarioDC">
+			<label>label.calendario.de.clasificacion</label>
+			<icon>/icons/calendars_root.png</icon>
+			<bigIcon>/icons/calendars_root_big.png</bigIcon>
+			<category>SimpleDocument</category>
+			<description>Calendario de Clasificacion</description>
+			<default-view>view_documents</default-view>
+			<create-view>crear_calendario</create-view>
+			<layouts mode="any">
+				<layout>heading</layout>
+				<layout>calendarioDC</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>calendarioDC</layout>
+			</layouts>
+		</type>
+
+		<type id="Domain">
+			<subtypes>
+				<type>CdC</type>
+			</subtypes>
+		</type>
+		<type id="CdC">
+			<label>label.cuadrodeclasificacion</label>
+			<icon>/icons/folder_cdc.gif</icon>
+			<bigIcon>/icons/folder_100_cdc.png</bigIcon>
+			<icon-expanded>/icons/folder_open_cdc.gif
+			</icon-expanded>
+			<category>Collaborative</category>
+			<description>Cuadro de Clasificacion</description>
+			<default-view>view_documents</default-view>
+			<subtypes>
+				<type>OrganoFuncional</type>
+			</subtypes>
+			<layouts mode="any">
+				<layout>heading</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>dublincore</layout>
+			</layouts>
+			<contentViews category="content">
+				<contentView>document_content</contentView>
+			</contentViews>
+			<contentViews category="trash_content">
+				<contentView>document_trash_content
+				</contentView>
+			</contentViews>
+		</type>
+		<type id="OrganoFuncional">
+			<label>Organo funcional</label>
+			<icon>/icons/folder_of.gif</icon>
+			<bigIcon>/icons/folder_100_of.png</bigIcon>
+			<icon-expanded>/icons/folder_open_of.gif
+			</icon-expanded>
+			<category>Collaborative</category>
+			<description>Organo funcional</description>
+			<default-view>view_documents</default-view>
+			<subtypes>
+				<type>FuncionMarco</type>
+			</subtypes>
+			<layouts mode="any">
+				<layout>heading</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>dublincore</layout>
+			</layouts>
+			<contentViews category="content">
+				<contentView>document_content</contentView>
+			</contentViews>
+			<contentViews category="trash_content">
+				<contentView>document_trash_content
+				</contentView>
+			</contentViews>
+		</type>
+		<type id="FuncionMarco">
+			<label>Funcion marco</label>
+			<icon>/icons/folder_fm.gif</icon>
+			<bigIcon>/icons/folder_100_fm.png</bigIcon>
+			<icon-expanded>/icons/folder_open_fm.gif
+			</icon-expanded>
+			<category>Collaborative</category>
+			<description>Funcion Marco</description>
+			<default-view>view_documents</default-view>
+			<subtypes>
+				<type>Funcion</type>
+			</subtypes>
+			<layouts mode="any">
+				<layout>heading</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>dublincore</layout>
+			</layouts>
+			<contentViews category="content">
+				<contentView>document_content</contentView>
+			</contentViews>
+			<contentViews category="trash_content">
+				<contentView>document_trash_content
+				</contentView>
+			</contentViews>
+		</type>
+		<type id="Funcion">
+			<label>Funcion</label>
+			<icon>/icons/folder_f.gif</icon>
+			<bigIcon>/icons/folder_100_f.png</bigIcon>
+			<icon-expanded>/icons/folder_open_f.gif
+			</icon-expanded>
+			<category>Collaborative</category>
+			<description>Funcion</description>
+			<default-view>view_documents</default-view>
+			<subtypes>
+				<type>Actividad</type>
+			</subtypes>
+			<layouts mode="any">
+				<layout>heading</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>dublincore</layout>
+			</layouts>
+			<contentViews category="content">
+				<contentView>document_content</contentView>
+			</contentViews>
+			<contentViews category="trash_content">
+				<contentView>document_trash_content
+				</contentView>
+			</contentViews>
+		</type>
+		<type id="Actividad">
+			<label>Actividad</label>
+			<icon>/icons/folder_a.gif</icon>
+			<bigIcon>/icons/folder_100_a.png</bigIcon>
+			<icon-expanded>/icons/folder_open_a.gif
+			</icon-expanded>
+			<category>Collaborative</category>
+			<description>Actividad</description>
+			<default-view>view_documents</default-view>
+			<subtypes>
+				<type>Serie</type>
+			</subtypes>
+			<layouts mode="any">
+				<layout>heading</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>dublincore</layout>
+			</layouts>
+			<contentViews category="content">
+				<contentView>document_content</contentView>
+			</contentViews>
+			<contentViews category="trash_content">
+				<contentView>document_trash_content
+				</contentView>
+			</contentViews>
+		</type>
+		<type id="Accion">
+			<label>Accion</label>
+			<icon>/icons/folder_a.gif</icon>
+			<bigIcon>/icons/folder_100_a.png</bigIcon>
+			<icon-expanded>/icons/folder_open_a.gif
+			</icon-expanded>
+			<category>Collaborative</category>
+			<description>Accion</description>
+			<default-view>view_documents</default-view>
+			<subtypes>
+				<type>Expediente</type>
+				<!-- <type>CAdD</type> -->
+			</subtypes>
+			<layouts mode="any">
+				<layout>heading</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>dublincore</layout>
+			</layouts>
+			<contentViews category="content">
+				<contentView>document_content</contentView>
+			</contentViews>
+			<contentViews category="trash_content">
+				<contentView>document_trash_content
+				</contentView>
+			</contentViews>
+		</type>
+
+	</extension>
+</component>

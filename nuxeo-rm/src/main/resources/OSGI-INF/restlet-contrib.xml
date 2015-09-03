@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<component name="org.yerbabuena.rm.actions.restAPI.contrib">
+
+	<extension
+		target="org.nuxeo.ecm.platform.ui.web.restAPI.service.PluggableRestletService"
+		point="restlets">
+
+
+		<documentation>
+			GET
+			/nuxeo/restAPI/{repo}/{docid}/changeState/{transition}
+
+			Parameters:
+			-
+			repo: current repository
+			- docid: document id
+			- transition: transition
+			to be executed
+
+		</documentation>
+		<restletPlugin name="changeState"
+			class="es.rm.platform.restlets.CambiarEstadoRestlet" enabled="true"
+			useSeam="true">
+			<urlPatterns>
+				<urlPattern>/{repo}/{docid}/changeState/{transition}</urlPattern>
+			</urlPatterns>
+		</restletPlugin>
+		
+		<documentation>
+			GET
+			
+			/nuxeo/restAPI/{repo}/{docid}/getCdC
+			
+			Parámetros requeridos:
+			 - repo : Repositorio actual
+			 - docid : Documento ID del CdC
+			
+			Parametros opcionales:
+			 - depth : profundidad de la extracción del árbol (si se omite es 1 por defecto)
+
+		</documentation>
+		<restletPlugin name="getCdC"
+			class="es.rm.platform.restlets.ConsultaCdCRestlet" enabled="true"
+			useSeam="true">
+			<urlPatterns>
+				<urlPattern>/{repo}/{docid}/getCdC</urlPattern>
+			</urlPatterns>
+		</restletPlugin>
+		
+		<documentation>
+			GET
+			/nuxeo/restAPI/{repo}/{docid}/getDocumentHistory
+
+			Parameters:
+			-
+			repo: current repository
+			- docid: document id
+
+		</documentation>
+		<restletPlugin name="getDocumentHistory"
+			class="es.rm.platform.restlets.HistoricoDocumentoRestlet" enabled="true"
+			useSeam="true">
+			<urlPatterns>
+				<urlPattern>/{repo}/{docid}/getDocumentHistory</urlPattern>
+			</urlPatterns>
+		</restletPlugin>
+		
+		<documentation>
+			GET
+			/nuxeo/restAPI/{repo}/{docid}/lifeCyclePolicy
+
+			Parameters:
+			- repo: current repository
+			- docid: document id
+
+		</documentation>
+		<restletPlugin name="lifeCyclePolicy"
+			class="es.rm.platform.restlets.ExtraerCicloDeVida" enabled="true"
+			useSeam="true">
+			<urlPatterns>
+				<urlPattern>/{repo}/{docid}/lifeCyclePolicy</urlPattern>
+			</urlPatterns>
+		</restletPlugin>
+  
+		<documentation>
+			GET
+			/nuxeo/restAPI/{repo}/{docid}/obtenerActividad
+
+			Parameters:
+			- repo: current repository
+			- docid: document id
+
+		</documentation>
+		<restletPlugin name="obtenerActividad"
+			class="es.rm.platform.restlets.ObtenerActividad" enabled="true"
+			useSeam="true">
+			<urlPatterns>
+				<urlPattern>/{repo}/{docid}/obtenerActividad</urlPattern>
+			</urlPatterns>
+		</restletPlugin>
+		
+		<documentation>
+			GET
+			/nuxeo/restAPI/{repo}/{docid}/obtenerAgente
+
+			Parameters:
+			- repo: current repository
+			- docid: document id
+
+		</documentation>
+		<restletPlugin name="obtenerAgente"
+			class="es.rm.platform.restlets.ObtenerAgente" enabled="true"
+			useSeam="true">
+			<urlPatterns>
+				<urlPattern>/{repo}/{docid}/obtenerAgente</urlPattern>
+			</urlPatterns>
+		</restletPlugin>
+		
+		<documentation>
+			GET
+			/nuxeo/restAPI/{repo}/{docid}/obtenerRegulacion
+
+			Parameters:
+			- repo: current repository
+			- docid: document id
+
+		</documentation>
+		<restletPlugin name="obtenerRegulacion"
+			class="es.rm.platform.restlets.ObtenerRegulacion" enabled="true"
+			useSeam="true">
+			<urlPatterns>
+				<urlPattern>/{repo}/{docid}/obtenerRegulacion</urlPattern>
+			</urlPatterns>
+		</restletPlugin>
+		
+		<documentation>
+			GET
+			/nuxeo/restAPI/{repo}/{docid}/obtenerRelacion
+
+			Parameters:
+			- repo: current repository
+			- docid: document id
+
+		</documentation>
+		<restletPlugin name="obtenerRelacion"
+			class="es.rm.platform.restlets.ObtenerRelacion" enabled="true"
+			useSeam="true">
+			<urlPatterns>
+				<urlPattern>/{repo}/{docid}/obtenerRelacion</urlPattern>
+			</urlPatterns>
+		</restletPlugin>
+		
+		<documentation>
+			GET
+			/nuxeo/restAPI/{repo}/{docid}/obtenerDocumento
+
+			Parameters:
+			- repo: current repository
+			- docid: document id
+
+		</documentation>
+		<restletPlugin name="obtenerDocumento"
+			class="es.rm.platform.restlets.ObtenerDocumento" enabled="true"
+			useSeam="true">
+			<urlPatterns>
+				<urlPattern>/{repo}/{docid}/obtenerDocumento</urlPattern>
+			</urlPatterns>
+		</restletPlugin>
+		
+	</extension>
+</component>

@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<component name="org.yerbabuena.rm.SchemaEMrmContrib">
+
+	<documentation>
+		Metadatos complementarios.
+		Esquema de metadatos para la
+		gestión del esquema de metadatos para la gestión de los documentos
+		eletrónicos de la rm. Basado en EMGDE.
+
+		A tener en cuenta que ciertos
+		metadatos incluidos en los siguientes se
+		encuentran mapeados con
+		metadatos obligatorios en la formalización
+		ENI.
+	</documentation>
+
+	<extension target="org.nuxeo.ecm.core.schema.TypeService"
+		point="schema">
+
+		<schema name="emrm_relacion_evento" src="schemas/emrm/emrm_relacion_evento.xsd"
+			prefix="evento" />
+		<schema name="emrm_relacion_procedencia" src="schemas/emrm/emrm_relacion_procedencia.xsd"
+			prefix="proceden" />
+		<schema name="emrm_relacion_procedencia_ids" src="schemas/emrm/emrm_relacion_procedencia_ids.xsd"
+			prefix="procedento" />
+		<schema name="emrm_regulacion_normativa"
+			src="schemas/emrm/emrm_entidad_regulacion_normativa.xsd" prefix="normativa" />
+		<schema name="emrm_regulacion_procedimiento"
+			src="schemas/emrm/emrm_entidad_regulacion_procedimiento.xsd"
+			prefix="procedimiento" />
+		<schema name="emrm_documento_grupofondo"
+			src="schemas/emrm/emrm_entidad_documento_grupofondo.xsd" prefix="grfondo" />
+		<schema name="emrm_documento_fondo" src="schemas/emrm/emrm_entidad_documento_fondo.xsd"
+			prefix="fondo" />
+		<schema name="emrm_documento_serie" src="schemas/emrm/emrm_entidad_documento_serie.xsd"
+			prefix="serie" />
+		<schema name="emrm_documento_expediente"
+			src="schemas/emrm/emrm_entidad_documento_expediente.xsd" prefix="expediente" /> <!-- Tambien usado para definir agregaciones -->
+		<schema name="emrm_documento_carpeta"
+			src="schemas/emrm/emrm_entidad_documento_carpeta.xsd" prefix="carpeta" />
+		<schema name="emrm_documento_documentosimple"
+			src="schemas/emrm/emrm_entidad_documento_documentosimple.xsd"
+			prefix="docsimple" />
+		<schema name="emrm_actividad_cdc" src="schemas/emrm/emrm_entidad_actividad_cdc.xsd"
+			prefix="cdc" />
+		<schema name="emrm_actividad_organofuncional"
+			src="schemas/emrm/emrm_entidad_actividad_organofuncional.xsd"
+			prefix="organofuncional" />
+		<schema name="emrm_actividad_funcionmarco"
+			src="schemas/emrm/emrm_entidad_actividad_funcionmarco.xsd" prefix="funcionmarco" />
+		<schema name="emrm_actividad_funcion"
+			src="schemas/emrm/emrm_entidad_actividad_funcion.xsd" prefix="funcion" />
+		<schema name="emrm_actividad_actividad"
+			src="schemas/emrm/emrm_entidad_actividad_actividad.xsd" prefix="actividad" />
+		<schema name="emrm_actividad_accion" src="schemas/emrm/emrm_entidad_actividad_accion.xsd"
+			prefix="accion" />
+		<schema name="emrm_agente_institucion"
+			src="schemas/emrm/emrm_entidad_agente_institucion.xsd" prefix="institucion" />
+		<schema name="emrm_agente_organo" src="schemas/emrm/emrm_entidad_agente_organo.xsd"
+			prefix="organo" />
+		<schema name="emrm_agente_persona" src="schemas/emrm/emrm_entidad_agente_persona.xsd"
+			prefix="persona" />
+		<schema name="emrm_agente_dispositivo"
+			src="schemas/emrm/emrm_entidad_agente_dispositivo.xsd" prefix="dispositivo" />
+
+	</extension>
+
+</component>

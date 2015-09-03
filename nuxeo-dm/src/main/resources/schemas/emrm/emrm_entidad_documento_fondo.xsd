@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:fondo="http://rm.administracion.es/emrm/entidad/documento/fondo"
+	targetNamespace="http://rm.administracion.es/emrm/entidad/documento/fondo">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS para el
+			FONDO segun EMrm basado en EMGDE.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="emrm_entidad_documento.xsd" />
+
+	<xsd:element name="Cantidad" type="xsd:string" />
+
+</xsd:schema>

@@ -1,0 +1,558 @@
+<?xml version="1.0"?>
+
+<component name="es.rm.platform.LayoutContrib">
+
+	<require>es.rm.platform.DirectoryContrib
+	</require>
+
+	<extension target="org.nuxeo.ecm.platform.forms.layout.WebLayoutManager"
+		point="widgets">
+
+		<widget name="versionNTI" type="text">
+			<labels>
+				<label mode="any">label.rm.trexpedient.VersionNTI
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>doce:VersionNTI</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">true</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="emrm_serie_nombre" type="text">
+			<labels>
+				<label mode="any">label.rm.emrm.nombre
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>serie:Nombre</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">true</property>
+			</properties>
+		</widget>
+
+		<widget name="NombreCortoNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.NombreCorto
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:NombreCorto</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">true</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="PublicacionNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.Publicacion
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:Publicacion</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">true</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="RectificacionNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.Rectificacion
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:Rectificacion</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">true</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="TipoDisposicionNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.TipoDisposicion
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:TipoDisposicion</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">true</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="AbreviaturaNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.Abreviatura
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:Abreviatura</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">true</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="CodigoNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.Codigo
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:Codigo</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">true</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="ClasificacionDeSeguridadNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.ClasificacionDeSeguridad
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:ClasificacionDeSeguridad
+				</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">true</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+
+		<widget name="AdvertenciaDeSeguridadNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.AdvertenciaDeSeguridad
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:AdvertenciaDeSeguridad
+				</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">true</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="TextoAdvertenciaNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.TextoAdvertencia
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:TextoAdvertencia</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">true</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="CategoriaAdvertenciaNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.CategoriaAdvertencia
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:CategoriaAdvertencia
+				</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">true</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="SensibilidadDatosCaracterPersonalNormativa" type="text">
+			<labels>
+				<label mode="any">
+					label.rm.normativa.SensibilidadDatosCaracterPersonal
+                </label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:SensibilidadDatosCaracterPersonal
+				</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="TerminoPuntoAccesoNormativa" type="list">
+			<labels>
+				<label mode="any">label.rm.normativa.TerminoPuntoAcceso
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:TerminoPuntoAcceso
+				</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+			</properties>
+			<subWidgets>
+				<widget name="listItem" type="text">
+					<fields>
+						<field></field>
+					</fields>
+					<labels>
+						<label mode="any"></label>
+					</labels>
+					<properties widgetMode="edit">
+						<property name="required">false</property>
+					</properties>
+				</widget>
+			</subWidgets>
+		</widget>
+
+		<widget name="IdPuntoAccesoNormativa" type="list">
+			<labels>
+				<label mode="any">label.rm.normativa.IdPuntoAcceso
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:IdPuntoAcceso</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+			</properties>
+			<subWidgets>
+				<widget name="listItem" type="text">
+					<fields>
+						<field></field>
+					</fields>
+					<labels>
+						<label mode="any"></label>
+					</labels>
+					<properties widgetMode="edit">
+						<property name="required">false</property>
+					</properties>
+				</widget>
+			</subWidgets>
+		</widget>
+
+		<widget name="JurisdiccionNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.Jurisdiccion
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:Jurisdiccion</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="ClasificacionENSNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.ClasificacionENS
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:ClasificacionENS</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="TipoEntidadNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.TipoEntidad
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:TipoEntidad</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="CategoriaNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.Categoria
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:Categoria</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="IdentificadorNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.Identificador
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:Identificador</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="NombreNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.Nombre
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:Nombre</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="FechaInicioNormativa" type="datetime">
+			<labels>
+				<label mode="any">label.rm.normativa.FechaInicio
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:FechaInicio</field>
+			</fields>
+			<properties widgetMode="any">
+				<property name="pattern">#{nxu:basicDateAndTimeFormater()}
+				</property>
+			</properties>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+			</properties>
+		</widget>
+
+		<widget name="FechaFinNormativa" type="datetime">
+			<labels>
+				<label mode="any">label.rm.normativa.FechaFin
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:FechaFin</field>
+			</fields>
+			<properties widgetMode="any">
+				<property name="pattern">#{nxu:basicDateAndTimeFormater()}
+				</property>
+			</properties>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+			</properties>
+		</widget>
+
+		<widget name="DescripcionNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.Descripcion
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:Descripcion</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+
+		<widget name="ModificacionMetadatosNormativa" type="text">
+			<labels>
+				<label mode="any">label.rm.normativa.ModificacionMetadatos
+				</label>
+			</labels>
+			<translated>true</translated>
+			<fields>
+				<field>normativa:ModificacionMetadatos
+				</field>
+			</fields>
+			<properties widgetMode="edit">
+				<property name="required">false</property>
+				<property name="styleClass">dataInputText</property>
+			</properties>
+		</widget>
+	</extension>
+
+
+	<extension target="org.nuxeo.ecm.platform.forms.layout.WebLayoutManager"
+		point="layouts">
+
+		<layout name="DocSimple">
+			<templates>
+				<template mode="any">/layouts/layout_default_template.xhtml
+				</template>
+			</templates>
+			<rows>
+				<row>
+					<widget>versionNTI</widget>
+				</row>
+			</rows>
+		</layout>
+
+		<layout name="Expediente">
+			<templates>
+				<template mode="any">/layouts/layout_default_template.xhtml
+				</template>
+			</templates>
+			<rows>
+				<row>
+					<widget>versionNTI</widget>
+				</row>
+			</rows>
+		</layout>
+
+		<layout name="Serie">
+			<templates>
+				<template mode="any">/layouts/layout_default_template.xhtml
+				</template>
+			</templates>
+			<rows>
+				<row>
+					<widget>emrm_serie_nombre</widget>
+				</row>
+			</rows>
+		</layout>
+
+		<layout name="Procedencia">
+			<templates>
+				<template mode="any">/layouts/layout_default_template.xhtml
+				</template>
+			</templates>
+		</layout>
+
+
+		<layout name="Normativa">
+			<templates>
+				<template mode="any">/layouts/layout_default_template.xhtml
+				</template>
+			</templates>
+			<rows>
+				<row>
+					<widget>NombreCortoNormativa</widget>
+				</row>
+				<row>
+					<widget>PublicacionNormativa</widget>
+				</row>
+				<row>
+					<widget>RectificacionNormativa</widget>
+				</row>
+				<row>
+					<widget>TipoDisposicionNormativa</widget>
+				</row>
+				<row>
+					<widget>AbreviaturaNormativa</widget>
+				</row>
+				<row>
+					<widget>CodigoNormativa</widget>
+				</row>
+				<row>
+					<widget>ClasificacionDeSeguridadNormativa
+					</widget>
+				</row>
+				<row>
+					<widget>AdvertenciaDeSeguridadNormativa
+					</widget>
+				</row>
+				<row>
+					<widget>TextoAdvertenciaNormativa</widget>
+				</row>
+				<row>
+					<widget>CategoriaAdvertenciaNormativa
+					</widget>
+				</row>
+				<row>
+					<widget>SensibilidadDatosCaracterPersonalNormativa
+					</widget>
+				</row>
+				<row>
+					<widget>TerminoPuntoAccesoNormativa
+					</widget>
+				</row>
+				<row>
+					<widget>IdPuntoAccesoNormativa</widget>
+				</row>
+				<row>
+					<widget>JurisdiccionNormativa</widget>
+				</row>
+				<row>
+					<widget>ClasificacionENSNormativa</widget>
+				</row>
+				<row>
+					<widget>TipoEntidadNormativa</widget>
+				</row>
+				<row>
+					<widget>CategoriaNormativa</widget>
+				</row>
+				<row>
+					<widget>IdentificadorNormativa</widget>
+				</row>
+				<row>
+					<widget>NombreNormativa</widget>
+				</row>
+				<row>
+					<widget>FechaInicioNormativa</widget>
+				</row>
+				<row>
+					<widget>FechaFinNormativa</widget>
+				</row>
+				<row>
+					<widget>DescripcionNormativa</widget>
+				</row>
+				<row>
+					<widget>ModificacionMetadatosNormativa
+					</widget>
+				</row>
+			</rows>
+		</layout>
+
+	</extension>
+
+</component>

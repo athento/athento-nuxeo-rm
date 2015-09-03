@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<component name="org.yerbabuena.rm.security.policy">
+ 
+  <extension target="org.nuxeo.ecm.core.security.SecurityService"
+    point="policies">
+ 
+    <policy name="politicaArchivo"
+      class="es.rm.platform.api.utils.ArchivoPoliticaSeguridad" order="0" />
+ 
+  </extension>
+ 
+</component>

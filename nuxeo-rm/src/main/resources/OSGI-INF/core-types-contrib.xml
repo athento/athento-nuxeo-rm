@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<component name="org.yerbabuena.athento.rm.DoctypesContrib">
+
+	<require>es.rm.platform.entidad.DoctypeContrib</require>
+	<require>es.rm.platform.entidad.actividad.DoctypeContrib</require>
+
+	<extension target="org.nuxeo.ecm.core.schema.TypeService"
+		point="schema">
+
+		<schema name="calendario_conservacion" src="schemas/calendario_conservacion.xsd"
+			prefix="calcon" />
+		<schema name="calendario_asociado" src="schemas/calendario_asociado.xsd"
+			prefix="calas" />
+		<schema name="calendariodc_search" src="schemas/calendariodc_search.xsd"
+			prefix="calcon_search" />
+		<schema name="documento_rm" src="schemas/documento_rm.xsd"
+			prefix="docrm" />
+		<schema name="cadd" src="schemas/athento/cadd.xsd" prefix="cadd" />
+		<schema name="dispositivos" src="schemas/dispositivos.xsd"
+			prefix="dispAlm" />
+
+	</extension>
+
+	<extension target="org.nuxeo.ecm.core.schema.TypeService"
+		point="doctype">
+		<doctype name="CdC" extends="OrderedFolder">
+			<subtypes>
+				<type>OrganoFuncional</type>
+			</subtypes>
+		</doctype>
+		<doctype name="OrganoFuncional" extends="OrderedFolder">
+			<facet name="elemento_cdc" />
+			<subtypes>
+				<type>FuncionMarco</type>
+			</subtypes>
+		</doctype>
+		<doctype name="FuncionMarco" extends="EntidadContenedora">
+			<schema name="emrm_actividad_funcionmarco" />
+			<facet name="elemento_cdc" />
+			<subtypes>
+				<type>Funcion</type>
+			</subtypes>
+		</doctype>
+		<doctype name="Funcion" extends="FuncionMarco">
+			<subtypes>
+				<type>Actividad</type>
+			</subtypes>
+			<schema name="emrm_actividad_funcion" />
+		</doctype>
+		<doctype name="Actividad" extends="Funcion">
+			<subtypes>
+				<type>Accion</type>
+			</subtypes>
+			<schema name="emrm_actividad_actividad" />
+		</doctype>
+		<doctype name="Accion" extends="Actividad">
+			<schema name="emrm_actividad_accion" />
+			<schema name="calendario_asociado" />
+			<subtypes>
+				<type>Expediente</type>
+				<type>ExpedienteREA</type>
+				<type>ExpedienteREAColaboracion</type>
+			</subtypes>
+		</doctype>
+		<doctype name="Serie" extends="Fondo">
+			<subtypes>
+				<type>Agregacion</type>
+				<type>Expediente</type>
+			</subtypes>
+			<schema name="uid" />
+			<schema name="emrm_documento_serie" />
+			<schema name="calendario_asociado" />
+			<facet name="Folderish" />
+		</doctype>
+
+		<!-- Tipos documentales y Facetas para Careptas de Documentos (CAdD) -->
+
+		<!-- Faceta sin esquema que indica que un tipo documental puede ser cerrado -->
+		<!-- <facet name="Cerrable" /> -->
+
+		<!-- Faceta sin esquema que indica que un tipo documental puede retenerse -->
+		<!-- <facet name="Retenible" /> -->
+
+		<!-- Faceta sin esquema que indica que un tipo documental es un elemento 
+			de un Cuadro de clasificación -->
+		<!-- <facet name="elemento_cdc" /> -->
+
+		<!-- Faceta sin esquema que indica que un tipo documental simple se puede 
+			declarar en el RM -->
+		<!-- <facet name="declarable_rm" /> -->
+
+
+		<!-- Declaración del tipo Carpeta de Documentos -->
+		<!-- <doctype name="CAdD" extends="EntidadContenedora">
+			<schema name="calendario_asociado" />
+			<schema name="cadd" />
+			<facet name="Folderish" />
+			<subtypes>
+				<type>Expediente</type>
+				<type>DocSimple</type>
+			</subtypes>
+		</doctype> -->
+
+		<!-- Tipos documentales y facetas para Calendarios de Conservación -->
+		<doctype name="CalendarioDC" extends="Document">
+			<schema name="dublincore" />
+			<schema name="calendario_conservacion" />
+		</doctype>
+
+		<doctype name="CalendarioDCRoot" extends="Folder">
+			<subtypes>
+				<type>CalendarioDC</type>
+			</subtypes>
+		</doctype>
+
+		<!-- Búsquedas -->
+		<doctype name="CalendarioDCSearch" extends="Document">
+			<schema name="calendariodc_search" />
+		</doctype>
+	</extension>
+
+	<!-- Documento electrónico en RM -->
+		<!-- <doctype name="DocumentoRM" extends="Document">
+			<schema name="dublincore" />
+			<schema name="documento_rm" />
+			<facet name="declarable_rm" />
+			<facet name="elemento_cdc" />
+		</doctype> -->
+
+	<extension target="org.nuxeo.ecm.core.lifecycle.LifeCycleService"
+		point="types">
+		<types>
+			<type name="Accion">default</type>
+			<type name="Actividad">default</type>
+			<type name="Funcion">default</type>
+			<type name="FuncionMarco">default</type>
+			<type name="OrganoFuncional">default</type>
+			<type name="CdC">default</type>
+		</types>
+	</extension>
+
+</component>

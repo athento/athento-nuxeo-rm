@@ -1,0 +1,17 @@
+<f:subview id="#{widget.id}_add" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:nxu="http://nuxeo.org/nxweb/util"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core">
+
+	<c:if test="#{widget.mode == 'edit'}">
+		<h:selectOneMenu value="#{field}" styleClass="dataInputText">
+			<f:selectItems value="#{archivoBean.extraerWorkflows()}" />
+		</h:selectOneMenu>
+	</c:if>
+
+	<c:if test="#{nxl:isLikeViewMode(widget.mode)}">
+		<h:outputText value="#{field}" />
+	</c:if>
+
+</f:subview>

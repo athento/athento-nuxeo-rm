@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:carpeta="http://rm.administracion.es/emrm/entidad/documento/carpeta"
+	targetNamespace="http://rm.administracion.es/emrm/entidad/documento/carpeta">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS para la CARPETA segun EMrm basado en EMGDE.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="emrm_entidad_documento.xsd" />
+
+</xsd:schema>

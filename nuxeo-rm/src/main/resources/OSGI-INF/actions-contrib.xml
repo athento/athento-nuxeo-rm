@@ -1,0 +1,459 @@
+<?xml version="1.0"?>
+
+<component name="org.yerbabuena.rm.actions">
+
+	<require>org.nuxeo.ecm.platform.actions</require>
+	<require>es.rm.platform.entidad.DoctypeContrib</require>
+	<require>org.yerbabuena.athento.rm.DoctypesContrib</require>
+
+	<extension target="org.nuxeo.ecm.platform.actions.ActionService"
+		point="actions">
+
+		<action id="newDocumentEnCdc" label="action.new.document" icon="/icons/action_add.gif"
+			type="fancybox">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<properties>
+				<property name="include">/select_document_type.xhtml</property>
+			</properties>
+			<filter-id>contenidoEnCdC</filter-id>
+			<filter-id>carpetaNoCerrada</filter-id>
+		</action>
+
+
+		<!-- Deshabilitamos los botones únicos y dejamos el botón común de nuevo 
+			documento que solo permite crear los subtipos definidos en los puntos de 
+			extensión correspondientes -->
+
+		<action id="newFuncionMarco" enabled="false">
+		</action>
+
+		<action id="newFuncion" enabled="false">
+		</action>
+
+		<action id="newActividad" enabled="false">
+		</action>
+
+		<action id="newAccion" enabled="false">
+		</action>
+
+		<action id="newExpediente" enabled="false">
+		</action>
+
+		<!-- Acciones de las Carpeta de Documentos -->
+
+		<action id="CerrarCAdD" link="#{archivoBean.cerrarCarpeta()}"
+			label="label.cerrar.cadd" icon="/icons/action_add.gif" order="10"
+			confirm="if( !confirmCloseFolder() ) return false;">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter-id>carpetaAbierta</filter-id>
+		</action>
+
+		<action id="RetenerCAdD" link="#{archivoBean.retenerCarpeta()}"
+			label="label.retener.cadd" icon="/icons/action_add.gif" order="20"
+			confirm="if( !confirmHolFolder() ) return false;">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter-id>carpetaCerrada</filter-id>
+		</action>
+
+		<action id="ReabrirCAdD" link="#{archivoBean.reabrirCarpeta()}"
+			label="label.reabrir.cadd" icon="/icons/action_add.gif" order="10"
+			confirm="if( !confirmOpenFolder() ) return false;">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter-id>carpetaCerrada</filter-id>
+		</action>
+
+		<action id="DesbloquearCAdD" link="#{archivoBean.desbloquearCarpeta()}"
+			label="label.liberar.cadd" icon="/icons/action_add.gif" order="10"
+			confirm="if( !confirmUnlockFolder() ) return false;">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter-id>carpetaRetenida</filter-id>
+		</action>
+
+		<!-- Acciones para crear Calendarios de Conservacion -->
+
+		<action id="CrearCalendarioDCRoot"
+			link="#{documentActions.createDocument('CalendarioDCRoot')}" label="label.crear.calendariocd.root"
+			icon="/icons/action_add.gif" order="10">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter id="nuevoCalendarioDCRoot">
+				<rule grant="true">
+					<permission>AddChildren</permission>
+					<type>Domain</type>
+				</rule>
+			</filter>
+		</action>
+
+		<action id="CrearCalendarioDC" link="#{documentActions.createDocument('CalendarioDC')}"
+			label="label.crear.calendariocd" icon="/icons/action_add.gif" order="10">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter id="nuevoCalendarioDC">
+				<rule grant="true">
+					<permission>AddChildren</permission>
+					<type>CalendarioDCRoot</type>
+				</rule>
+			</filter>
+		</action>
+
+		<!-- Botón para hacer submit al formulario de creación del calendario -->
+		<action id="CREATE_CALENDARIO" link="#{archivoBean.crearCalendario}"
+			order="0" label="command.create">
+			<category>CREAR_CALENDARIO_FORM</category>
+		</action>
+
+		<action id="CANCEL_CALENDAR_CREATION" link="#{navigationContext.goBack()}"
+			order="50" label="command.cancel" immediate="true">
+			<category>CREAR_CALENDARIO_FORM</category>
+		</action>
+
+		<!-- Pestaña donde se asociarán calendarios de conservación a elementos 
+			del CdC -->
+
+		<action id="TAB_CALENDARIO_ASOCIADO" link="/incl/calendario_asociado.xhtml"
+			label="label.asociar.calendariocd" order="25">
+			<category>VIEW_ACTION_LIST</category>
+			<filter-id>contenidoEnCdC</filter-id>
+		</action>
+
+		<!-- Sobreescritura del botón de eliminar para el caso de calendarios de 
+			conservación -->
+		<action id="CURRENT_SELECTION_TRASH" enabled="false" />
+		<action id="POPUP_DEL" enabled="false" />
+
+		<!-- Sobreescritura del botón de eliminar para el caso de calendarios de 
+			conservación -->
+		<action id="CURRENT_SELECTION_CDC_TRASH" link="#{archivoBean.eliminarCalendariosSeleccionados()}"
+			label="command.trashDocs" icon="" help="comand.trashDocs.help"
+			confirm="if( !confirmDeleteDocuments() ) return false;">
+			<category>CURRENT_SELECTION_LIST</category>
+			<filter id="canDelete">
+				<rule grant="true">
+					<condition>#{deleteActions.canDelete}</condition>
+				</rule>
+			</filter>
+			<filter-id>noContenidoEnCdC</filter-id>
+		</action>
+
+		<!-- Sobreescritura del botón de eliminar para el caso de calendarios de 
+			conservacion en el menu contextual -->
+		<action icon="/icons/delete_red.png" id="POPUP_CDC_DEL" label="command.trashDocs"
+			link="javascript:doCdCDelete">
+			<category>POPUP</category>
+			<filter id="canDeletePopup">
+				<rule grant="true">
+					<condition>#{deleteActions.getCanDeleteItem(container)}</condition>
+				</rule>
+			</filter>
+			<filter id="esCalendario">
+				<rule grant="true">
+					<type>CalendarioDC</type>
+				</rule>
+			</filter>
+		</action>
+		
+		<!-- Sobreescribimos la acción del sumario para impedir que se pinte en 
+			los documentos electrónicos del RM <action id="TAB_VIEW" link="/incl/tabs/document_view.xhtml" 
+			order="0" label="action.view.summary" icon="/icons/file.gif"> <category>VIEW_ACTION_LIST</category> 
+			<filter-id>view</filter-id> <filter-id>NoDocumentoRM</filter-id> </action> 
+			Creamos una nueva acción para pintar el sumario de los documentos electrónicos 
+			del RM <action id="TAB_VIEW_RM" link="/incl/documento_rm_view.xhtml" order="0" 
+			label="action.view.summary2" icon="/icons/file.gif"> <category>VIEW_ACTION_LIST</category> 
+			<filter-id>view</filter-id> <filter-id>documentoRM</filter-id> </action> -->
+
+		<action id="RESTAURAR_DOC_E" link="#{declararDocumentoE.restaurar()}"
+			label="command.documentoe.restaurar"
+			confirm="if (!window.confirm('#{messages['label.confirm.restaurar.docE']}')) { return false; }">
+			<category>CURRENT_SELECTION_LIST</category>
+			<filter id="puedeRestaurar">
+				<rule grant="true">
+					<condition>#{declararDocumentoE.puedeRestaurar()}</condition>
+				</rule>
+			</filter>
+		</action>
+
+		<action id="INICIAR_DISPOSICION" link="#{asociacionCalendario.iniciarDisposicion()}"
+			label="command.documentoe.iniciar.disposicion"
+			confirm="if (!window.confirm('#{messages['label.confirm.iniciar.disposicion']}')) { return false; }">
+			<category>CURRENT_SELECTION_LIST</category>
+			<filter id="puedeIniciarDisp">
+				<rule grant="true">
+					<condition>#{asociacionCalendario.puedeIniciarDisposicion()}
+					</condition>
+				</rule>
+			</filter>
+		</action>
+
+		<!-- Sobre escribimos el botón de guardar cambios al editar ya hay que 
+			controlar cuando se incrementa una versión si el usuario quiere actualizar 
+			todas las referencias a ese documento -->
+		<action id="EDIT_CURRENT_DOCUMENT" link="#{declararDocumentoE.guardarDocumento()}"
+			order="0" label="command.save">
+			<category>EDIT_DOCUMENT_FORM</category>
+		</action>
+
+		<!-- <action id="CLIPBOARD_PASTE" link="#{clipboardActions.pasteClipboard}" 
+			label="command.clipboard.paste" icon=""> <category>CURRENT_SELECTION_LIST</category> 
+			<filter id="canPastFromClipboard"> <rule grant="true"> <condition>#{clipboardActions.canPasteFromClipboard}</condition> 
+			</rule> </filter> <filter-id>noContenidoEnCdC</filter-id> </action> -->
+		<action id="CURRENT_SELECTION_DELETE" link="#{deleteActions.purgeSelection}"
+			label="command.deleteDocs" icon="" help="comand.deleteDocs.help"
+			confirm="if( !confirmDeleteDocumentsForever() ) return false;">
+			<category>CURRENT_SELECTION_TRASH_LIST</category>
+			<filter id="canPurge">
+				<rule grant="true">
+					<condition>#{deleteActions.canPurge}</condition>
+				</rule>
+			</filter>
+			<filter-id>noContenidoEnCdC</filter-id>
+		</action>
+
+		<action id="CURRENT_SELECTION_UNDELETE" link="#{deleteActions.undeleteSelection}"
+			label="command.undeleteDocs" icon="" help="comand.undeleteDocs.help"
+			confirm="if( !confirmUndeleteDocuments() ) return false;">
+			<category>CURRENT_SELECTION_TRASH_LIST</category>
+			<filter id="canPurge">
+				<rule grant="true">
+					<condition>#{deleteActions.canPurge}</condition>
+				</rule>
+			</filter>
+			<filter-id>noContenidoEnCdC</filter-id>
+		</action>
+
+		<action id="CURRENT_SELECTION_COPY" link="#{clipboardActions.putSelectionInClipboard}"
+			label="command.clipboard.copy" icon="">
+			<category>CURRENT_SELECTION_LIST</category>
+			<filter-id>canCopyFromCurrentSelection</filter-id>
+			<filter-id>noContenidoEnCdC</filter-id>
+		</action>
+
+		<action id="CURRENT_SELECTION_ADDTOLIST" link="#{clipboardActions.putSelectionInDefaultWorkList}"
+			label="help.command.clipboard.addworklist" icon="">
+			<category>CURRENT_SELECTION_LIST</category>
+			<filter-id>canCopyFromCurrentSelection</filter-id>
+			<filter id="no_addtolist_for_domains">
+				<rule grant="false">
+					<type>Root</type>
+				</rule>
+			</filter>
+			<filter-id>noContenidoEnCdC</filter-id>
+		</action>
+
+		<action id="POPUP_COPY" link="javascript:doCopy" label="command.clipboard.copy"
+			icon="/icons/action_clipboard_copy.gif">
+			<category>POPUP</category>
+		</action>
+
+		<!-- <action id="POPUP_PASTE" link="javascript:doPaste" label="command.clipboard.paste" 
+			icon="/icons/action_paste_all.gif"> <category>POPUP</category> <filter id="canPastePopup"> 
+			<rule grant="true"> <condition> #{clipboardActions.getCanPasteFromClipboardInside(document)} 
+			</condition> </rule> </filter> <filter-id>noContenidoEnCdC</filter-id> </action> -->
+
+		<action id="POPUP_MOVE" link="javascript:doMove" label="command.clipboard.moveAll"
+			icon="/icons/action_move_all.gif">
+			<category>POPUP</category>
+			<filter id="canPastePopup">
+				<rule grant="true">
+					<condition>
+						#{clipboardActions.getCanMoveFromClipboardInside(document)}
+					</condition>
+				</rule>
+			</filter>
+			<!-- <filter-id>noContenidoEnCdC</filter-id> -->
+		</action>
+
+		<action id="POPUP_DEL" link="javascript:doDelete" label="command.trashDocs"
+			icon="/icons/action_delete_mini_over.png">
+			<category>POPUP</category>
+			<filter id="canDeletePopup">
+				<rule grant="true">
+					<condition>#{deleteActions.getCanDeleteItem(container)}</condition>
+				</rule>
+			</filter>
+			<filter-id>noContenidoEnCdC</filter-id>
+		</action>
+
+		<!-- Pestañas de administracion -->
+
+		<action id="rm_admin" link="view_admin-fragment.xhtml" label="label.main.tab.rm.admin.center"
+			order="60">
+			<category>NUXEO_ADMIN</category>
+			<filter-id>only_for_manager</filter-id>
+		</action>
+
+		<action id="ProgramadorTareas"
+			link="/incl/admin/schedulers/configurar_hora_ejecucion.xhtml" label="tab.programador.tareas"
+			order="10">
+			<category>rm_admin_sub_tab</category>
+			<filter-id>only_for_manager</filter-id>
+		</action>
+
+		<action id="newCdC" link="#{documentActions.createDocument('CdC')}"
+			label="Crear un nuevo Cuadro de Clasificación" icon="/icons/action_add.gif">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter id="newCdC">
+				<rule grant="true">
+					<permission>AddChildren</permission>
+					<type>Domain</type>
+				</rule>
+			</filter>
+		</action>
+
+		<action id="newOrganoFuncional"
+			link="#{documentActions.createDocument('OrganoFuncional')}" label="Crear un nuevo Órgano funcional"
+			icon="/icons/action_add.gif">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter id="newOrganoFuncional">
+				<rule grant="true">
+					<permission>AddChildren</permission>
+					<type>CdC</type>
+				</rule>
+			</filter>
+		</action>
+
+		<action id="newFuncionMarco" link="#{documentActions.createDocument('FuncionMarco')}"
+			label="Crear una nueva Función marco" icon="/icons/action_add.gif">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter id="newFuncionMarco">
+				<rule grant="true">
+					<permission>AddChildren</permission>
+					<type>OrganoFuncional</type>
+				</rule>
+			</filter>
+		</action>
+
+		<action id="newFuncion" link="#{documentActions.createDocument('Funcion')}"
+			label="Crear una nueva Función" icon="/icons/action_add.gif">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter id="newFuncion">
+				<rule grant="true">
+					<permission>AddChildren</permission>
+					<type>FuncionMarco</type>
+				</rule>
+			</filter>
+		</action>
+
+		<action id="newActividad" link="#{documentActions.createDocument('Actividad')}"
+			label="Crear una nueva Actividad" icon="/icons/action_add.gif">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter id="newActividad">
+				<rule grant="true">
+					<permission>AddChildren</permission>
+					<type>Funcion</type>
+				</rule>
+			</filter>
+		</action>
+
+		<action id="newAccion" link="#{documentActions.createDocument('Accion')}"
+			label="Crear una nueva Acción" icon="/icons/action_add.gif">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter id="newAccion">
+				<rule grant="true">
+					<permission>AddChildren</permission>
+					<type>Actividad</type>
+				</rule>
+			</filter>
+		</action>
+
+		<action id="newExpediente" link="#{documentActions.createDocument('Expediente')}"
+			label="Crear un nuevo Expediente/Carpeta" icon="/icons/action_add.gif">
+			<category>SUBVIEW_UPPER_LIST</category>
+			<filter id="newExpediente">
+				<rule grant="true">
+					<permission>AddChildren</permission>
+					<type>Accion</type>
+					<type>Serie</type>
+				</rule>
+			</filter>
+		</action>
+
+	</extension>
+
+
+	<extension target="org.nuxeo.ecm.platform.actions.ActionService"
+		point="filters">
+
+		<filter id="create">
+			<rule grant="true">
+				<permission>AddChildren</permission>
+				<facet>Folderish</facet>
+				<type>Workspace</type>
+				<type>TemplateRoot</type>
+				<type>Section</type>
+				<type>Folder</type>
+				<type>OrderedFolder</type>
+				<type>TrazaExpediente</type>
+				<type>ExpedienteIndizado</type>
+				<type>CarpetaIndizada</type>
+				<!-- Eliminamos el Expediente -->
+			</rule>
+		</filter>
+
+		<filter id="puedeCerrarse">
+			<rule grant="true">
+				<facet>Cerrable</facet>
+				<!-- <type>CAdD</type> -->
+				<type>Expediente</type>
+			</rule>
+		</filter>
+
+		<filter id="puedeRetenerse">
+			<rule grant="true">
+				<facet>Retenible</facet>
+				<!-- <type>CAdD</type> -->
+				<type>Expediente</type>
+			</rule>
+		</filter>
+
+		<filter id="contenidoEnCdC">
+			<rule grant="true">
+				<type>Expediente</type>
+				<type>ExpedienteREA</type>
+				<type>ExpedienteRELE</type>
+				<type>Serie</type>
+				<type>Agregacion</type>
+				<type>Fondo</type>
+				<type>GrupoDeFondo</type>
+				<type>OrganoFuncional</type>
+				<type>FuncionMarco</type>
+				<type>Funcion</type>
+				<type>Actividad</type>
+				<type>Accion</type>
+				<!-- <type>CAdD</type> -->
+			</rule>
+		</filter>
+
+		<filter id="noContenidoEnCdC">
+			<rule grant="false">
+				<facet>elemento_cdc</facet>
+			</rule>
+		</filter>
+
+		<filter id="carpetaAbierta">
+			<rule grant="true">
+				<condition>#{archivoBean.carpetaAbierta()}
+				</condition>
+			</rule>
+		</filter>
+
+		<filter id="carpetaRetenida">
+			<rule grant="true">
+				<condition>#{archivoBean.carpetaRetenida()}
+				</condition>
+			</rule>
+		</filter>
+
+		<filter id="carpetaNoCerrada">
+			<rule grant="true">
+				<condition>#{archivoBean.carpetaNoCerrada()}</condition>
+			</rule>
+		</filter>
+
+		<filter id="carpetaCerrada">
+			<rule grant="true">
+				<condition>#{archivoBean.carpetaCerrada()}
+				</condition>
+			</rule>
+		</filter>
+
+	</extension>
+
+</component>

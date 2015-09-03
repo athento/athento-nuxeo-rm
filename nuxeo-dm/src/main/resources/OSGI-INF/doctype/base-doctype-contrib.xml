@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<component name="es.rm.platform.entidad.DoctypeContrib">
+
+	<require>org.nuxeo.ecm.core.CoreExtensions</require>
+
+	<extension target="org.nuxeo.ecm.core.schema.TypeService"
+		point="doctype">
+		<documentation>Tipos documentales para el modelo de Entidades del
+			EMrm
+		</documentation>
+
+		<doctype name="Entidad" extends="Document">
+			<schema name="common" />
+			<schema name="dublincore" />
+			<facet name="Versionable" />
+		</doctype>
+
+		<doctype name="EntidadContenedora" extends="Entidad">
+			<facet name="Folderish" />
+		</doctype>
+
+		<doctype name="Reference" extends="Document">
+			<schema name="common" />
+			<schema name="dublincore" />
+			<schema name="referencia" />
+		</doctype>
+
+		<doctype name="Email" extends="Document">
+			<schema name="common" />
+			<schema name="file" />
+			<schema name="dublincore" />
+			<schema name="uid" />
+			<schema name="email" />
+			<facet name="Downloadable" />
+			<facet name="Versionable" />
+			<facet name="Publishable" />
+			<facet name="Commentable" />
+			<facet name="HasRelatedText" />
+		</doctype>
+
+	</extension>
+
+</component>

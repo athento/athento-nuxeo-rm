@@ -1,0 +1,34 @@
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+  xmlns:nxu="http://nuxeo.org/nxweb/util"
+  xmlns:nxdir="http://nuxeo.org/nxdirectory"
+  xmlns:c="http://java.sun.com/jstl/core"
+  xmlns:nxl="http://nuxeo.org/nxforms/layout" id="#{widget.id}">
+
+  <c:if test="#{widget.mode != 'create' and widget.mode != 'edit'}">
+	
+	<h:outputText value="#{field}" />
+    
+  </c:if>
+
+  <c:if test="#{widget.mode == 'create' or widget.mode == 'edit'}">
+
+    <h:selectOneMenu id="tipo_firma" value="#{field}">		 
+		
+		<f:selectItem itemValue="TF01" itemLabel="#{messages['label.tipoFirma.csv']}"/>
+		<f:selectItem itemValue="TF02" itemLabel="#{messages['label.tipoFirma.xades.ids']}"/>
+		<f:selectItem itemValue="TF03" itemLabel="#{messages['label.tipoFirma.xades.es']}"/>
+		<f:selectItem itemValue="TF04" itemLabel="#{messages['label.tipoFirma.cades.des']}"/>
+		<f:selectItem itemValue="TF05" itemLabel="#{messages['label.tipoFirma.cades.ais']}"/>
+		<f:selectItem itemValue="TF06" itemLabel="#{messages['label.tipoFirma.pades']}"/>
+		<f:selectItem itemValue="N/A" itemLabel="N/A"/>
+				 	 
+		<a4j:support event="onchange" ajaxSingle="true" action="#{rmUtilsActions.toogleValue(field)}" 
+		reRender="panel-valor-csv, panel-definicion-csv, #{rmUtilsActions.reRenderValorCSV(widget.name)}_layouts-panel, #{rmUtilsActions.reRenderdefCSV(widget.name)}_layouts-panel"/>
+	</h:selectOneMenu> 
+      
+      
+
+  </c:if>
+
+</f:subview>

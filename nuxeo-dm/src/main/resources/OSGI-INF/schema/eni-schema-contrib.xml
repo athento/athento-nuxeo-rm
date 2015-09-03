@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<component name="es.rm.platform.SchemaENIContrib">
+
+	<documentation>
+		Definición de esquemas de metadatos para el ENI. Se
+		incluyen:
+		- Metadatos obligatorios.
+	</documentation>
+	<extension target="org.nuxeo.ecm.core.schema.TypeService"
+		point="schema">
+		<schema name="eni_documentoe_oblig" src="schemas/eni/eni_documentoe_obligatorios.xsd"
+			prefix="doce" />
+		<schema name="eni_documentoe_metadatos" src="schemas/eni/eni_documentoe_metadatos.xsd"
+			prefix="docemet" />
+		<schema name="eni_documentoe_contenido" src="schemas/eni/eni_documentoe_contenido.xsd"
+			prefix="docecon" />
+		<schema name="eni_documentoe_firma" src="schemas/eni/eni_documentoe_firma.xsd"
+			prefix="docefir" />
+		<schema name="eni_expedientee_oblig" src="schemas/eni/eni_expedientee_obligatorios.xsd"
+			prefix="expe" />
+	</extension>
+
+</component>

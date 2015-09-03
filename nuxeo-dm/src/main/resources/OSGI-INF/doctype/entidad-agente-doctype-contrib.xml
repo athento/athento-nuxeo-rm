@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<component name="es.rm.platform.entidad.agente.DoctypeContrib">
+
+	<require>org.nuxeo.ecm.core.CoreExtensions</require>
+	<require>es.rm.platform.entidad.DoctypeContrib</require>
+
+	<extension target="org.nuxeo.ecm.core.schema.TypeService"
+		point="doctype">
+
+		<doctype name="Institucion" extends="Entidad">
+			<subtypes>
+				<type>Organo</type>
+			</subtypes>
+			<schema name="emrm_agente_institucion" />
+		</doctype>
+		<doctype name="Organo" extends="Institucion">
+			<subtypes>
+				<type>Persona</type>
+			</subtypes>
+			<schema name="emrm_agente_organo" />
+		</doctype>
+		<doctype name="Persona" extends="Organo">
+			<subtypes>
+				<type>Dispositivo</type>
+			</subtypes>
+			<schema name="emrm_agente_persona" />
+		</doctype>
+		<doctype name="Dispositivo" extends="Organo">
+			<schema name="emrm_agente_dispositivo" />
+		</doctype>
+	</extension>
+
+</component>

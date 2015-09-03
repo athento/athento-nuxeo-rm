@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns:trtarjetatransporte="http://administracionelectronica.gob.es/ENI/XSD/v1.0/traza/trtarjetatransporte" 
+			targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/traza/trtarjetatransporte" 
+			elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS tr-tarjetatransporte EN APLICACION TRAZA </xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:element name="numeroTarjeta" type="xsd:integer" />
+	<xsd:element name="tipoTarjeta" type="xsd:string" />
+	<xsd:element name="paisOrigen" type="xsd:string" />
+		
+</xsd:schema>

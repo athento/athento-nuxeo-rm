@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:normativa="http://rm.administracion.es/emrm/entidad/regulacion/normativa"
+	targetNamespace="http://rm.administracion.es/emrm/entidad/regulacion/normativa">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD emrm aplicables al
+			NORMATIVA de la entidad Regulacion.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="emrm_entidad_regulacion.xsd" />
+
+	<xsd:element name="NombreCorto" type="xsd:string" /> <!-- emrm_NO.24 -->
+
+	<xsd:element name="Publicacion" type="xsd:string" /> <!-- emrm_NO.25.1 -->
+	<xsd:element name="Rectificacion" type="xsd:string" /> <!-- emrm_NO.25.2 -->
+
+	<xsd:element name="TipoDisposicion" type="xsd:string" /> <!-- Tabla de valores --> <!-- emrm_NO.26 -->
+	<xsd:element name="Abreviatura" type="xsd:string" /> <!-- emrm_NO.28 -->
+	<xsd:element name="Codigo" type="xsd:string" />
+
+</xsd:schema>

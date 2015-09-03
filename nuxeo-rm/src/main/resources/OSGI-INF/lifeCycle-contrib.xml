@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+
+<component name="org.yerbabuena.rm.lifecycles">
+
+	<documentation>
+		@author
+		<a href="mailto:vs@athento.com">Victor Sanchez</a>
+	</documentation>
+
+	<extension target="org.nuxeo.ecm.core.lifecycle.LifeCycleService"
+		point="lifecycle">
+
+		<lifecycle name="documento-Carpeta" defaultInitial="creacion">
+			<transitions>
+				<transition name="aCreacion" destinationState="creacion">
+				</transition>
+				<transition name="aVigencia" destinationState="vigencia">
+				</transition>
+				<transition name="aArchivo" destinationState="archivo">
+				</transition>
+				<transition name="aTransferencia" destinationState="transferencia">
+				</transition>
+				<transition name="aEliminar" destinationState="eliminado">
+				</transition>
+			</transitions>
+			<states>
+				<state name="creacion">
+					<transitions>
+						<transition>aVigencia</transition>
+						<transition>aEliminar</transition>
+					</transitions>
+				</state>
+				<state name="vigencia">
+					<transitions>
+						<transition>aArchivo</transition>
+						<transition>aCreacion</transition>
+						<transition>aEliminar</transition>
+					</transitions>
+				</state>
+				<state name="archivo">
+					<transitions>
+						<transition>aTransferencia</transition>
+						<transition>aEliminar</transition>
+					</transitions>
+				</state>
+				<state name="transferencia">
+					<transitions>
+						<transition>aEliminar</transition>
+					</transitions>
+				</state>
+				<state name="eliminado">
+					<transitions>
+						<transition>aVigencia</transition>
+						<transition>aCreacion</transition>
+						<transition>aArchivo</transition>
+						<transition>aTransferencia</transition>
+					</transitions>
+				</state>
+			</states>
+		</lifecycle>
+
+		<lifecycle name="calendariodc_lc" defaultInitial="activo">
+			<transitions>
+				<transition name="delete" destinationState="deleted">
+					<description>Mueve una carpeta de documentos a la papelera
+					</description>
+				</transition>
+				<transition name="undelete" destinationState="activo">
+					<description>Recupera una carpeta de documentos desde la papelera
+					</description>
+				</transition>
+			</transitions>
+			<states>
+				<state name="activo" description="Carpeta de Documentos Abierta"
+					initial="true">
+					<transitions>
+						<transition>delete</transition>
+					</transitions>
+				</state>
+				<state name="deleted" description="Carpeta de documentos borrada">
+					<transitions>
+						<transition>undelete</transition>
+					</transitions>
+				</state>
+			</states>
+		</lifecycle>
+
+		<lifecycle name="documento_rm" defaultInitial="tramitacion">
+			<transitions>
+				<transition name="aTramitacion" destinationState="tramitacion">
+				</transition>
+				<transition name="aVigencia" destinationState="vigencia">
+				</transition>
+				<transition name="aArchivo" destinationState="archivo">
+				</transition>
+				<transition name="aTransferencia" destinationState="transferencia">
+				</transition>
+				<transition name="restaurar" destinationState="restaurado">
+				</transition>
+			</transitions>
+			<states>
+				<state name="tramitacion" initial="true">
+					<transitions>
+						<transition>aVigencia</transition>
+						<transition>restaurar</transition>
+					</transitions>
+				</state>
+				<state name="vigencia">
+					<transitions>
+						<transition>aArchivo</transition>
+						<transition>restaurar</transition>
+					</transitions>
+				</state>
+				<state name="archivo">
+					<transitions>
+						<transition>aTransferencia</transition>
+						<transition>restaurar</transition>
+					</transitions>
+				</state>
+				<state name="transferencia">
+					<transitions>
+						<transition>restaurar</transition>
+					</transitions>
+				</state>
+			</states>
+		</lifecycle>
+	</extension>
+
+	<extension target="org.nuxeo.ecm.core.lifecycle.LifeCycleService"
+		point="types">
+
+		<types>
+			<!-- <type name="CAdD">cadd_lc</type> -->
+			<!-- <type name="CAdD">documento-Carpeta</type> -->
+			<type name="CalendarioDCRoot">calendariodc_lc</type>
+			<type name="CalendarioDC">calendariodc_lc</type>
+			<type name="DocumentoRM">documento_rm</type>
+		</types>
+	</extension>
+
+</component>

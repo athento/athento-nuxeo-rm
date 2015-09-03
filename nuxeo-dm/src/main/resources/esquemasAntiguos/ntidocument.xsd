@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:ntidocument="http://administracionelectronica.gob.es/ENI/XSD/v1.0/traza/ntidocument" 
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/traza/ntidocument"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS nti-document EN APLICACION TRAZA </xsd:documentation>
+	</xsd:annotation>
+	
+	<!-- Estos tres elementos identifican al documento acorde a la especificación eEMGDE2.1 -->
+	<xsd:element name="versionNTI" type="xsd:string"/>
+	<xsd:element name="identificador" type="xsd:string"/>
+	<xsd:element name="organo" type="xsd:string"/>
+	
+	<!-- Formato: <AAAA-MM-DD>T<hh:mm:ss> según eEMGDE4.1 -->
+	<xsd:element name="fechaInicio" type="xsd:date"/>
+	
+	<!-- Valores segun NTI en tiposDocumental.csv -->	
+	<xsd:element name="tipoDocumental" type="xsd:string"/>
+	
+	<!-- eEMGDE2.1 -->
+	<xsd:element name="estadoElaboracion" type="xsd:string"/>
+	
+</xsd:schema>

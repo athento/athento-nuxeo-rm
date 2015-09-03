@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:especmtdocmeta="http://administracionelectronica.gob.es/ENI/XSD/v1.0/documento-e/metadatos-especificos-traza/mt" 
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/documento-e/metadatos-especificos-traza/mt"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS ESPECIFICOS MATRICULAS TEMPORALES EN APLICACION TRAZA  </xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:element name="metadatosGenericosTraza" type="especmtdocmeta:TipoMetadatosEspecificosMt"/>
+	
+	<xsd:complexType name="TipoMetadatosEspecificosMt">
+		<xsd:sequence>
+			<xsd:element name="NumeroPermisoTemporal" type="xsd:string"/>
+			<xsd:element name="TipoMatricula" type="especmtdocmeta:tiposMatricula"/>
+			<xsd:element name="NumeroBastidor" type="xsd:string"/>
+			<xsd:element name="FechaCaducidadPermiso" type="xsd:dateTime"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="tiposMatricula">
+		<xsd:restriction base="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation xml:lang="es">
+					/*Tipos definidos en Traza*/
+					<xsd:enumeration value="DeEmpresa"/>
+					<xsd:enumeration value="Particular"/>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+		
+</xsd:schema>

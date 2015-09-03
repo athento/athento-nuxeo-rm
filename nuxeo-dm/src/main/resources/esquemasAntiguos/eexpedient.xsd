@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns:eexpedient="http://administracionelectronica.gob.es/ENI/XSD/v1.0/traza/eexpedient" 
+			targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/traza/eexpedient" 
+			elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS e-expedient EN APLICACION TRAZA </xsd:documentation>
+	</xsd:annotation>
+	
+	<!-- Incluye ntidocument.xsd y eemgde.xsd -->
+	
+	
+	<!-- eEMGDE16.1 -->
+	<xsd:element name="funcionResumenFoliado" type="xsd:string" />
+	<!-- eEMGDE2.1 -->
+	<xsd:element name="interesado" type="xsd:string" />
+	<!-- eEMGDE4.2 -->
+	<xsd:element name="estado" type="xsd:string" />
+		
+		
+</xsd:schema>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:calendar="http://administracionelectronica.gob.es/ENI/XSD/v1.0/calendarioConservacion"
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/calendarioConservacion"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">Metadatos de un
+			Calendario de Conservación
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:complexType name="stringList">
+		<xsd:sequence>
+			<xsd:element name="item" type="xsd:string" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="periodo_vigencia">
+		<xsd:sequence>
+			<xsd:element name="dias" type="xsd:integer" default="0" />
+			<xsd:element name="meses" type="xsd:integer" default="0" />
+			<xsd:element name="anos" type="xsd:integer" default="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="faseItem">
+		<xsd:sequence>
+			<xsd:element name="nombre_fase" type="xsd:string" />
+			<xsd:element name="periodo" type="calendar:periodo_vigencia" />
+			<xsd:element name="id_workflow" type="xsd:string" />
+			<xsd:element name="eventoOp1" type="xsd:string" />
+			<xsd:element name="eventoOperacion" type="xsd:string" />
+			<xsd:element name="eventoOp2" type="xsd:string" />
+			
+			<xsd:element name="id_dispositivo" type="xsd:string" />
+			
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="complexListType">
+		<xsd:sequence>
+			<xsd:element name="item" type="calendar:faseItem" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="objetoAsociado">
+		<xsd:sequence>
+			<xsd:element name="docId" type="xsd:string" />
+			<xsd:element name="fecha_prevista_fin_retencion" type="xsd:date" />
+			<xsd:element name="fecha_cierre" type="xsd:date" />
+			<xsd:element name="retenido_manual" type="xsd:boolean" />
+			<xsd:element name="fecha_ultima_retencion_manual" type="xsd:date" />
+			<xsd:element name="fase_calendario" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="objetosAsociadosList">
+		<xsd:sequence>
+			<xsd:element name="item" type="calendar:objetoAsociado" minOccurs="0"
+				maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="fase" type="calendar:complexListType" />
+	<xsd:element name="idDocumentos" type="calendar:stringList" />
+	<xsd:element name="objetosAsociados" type="calendar:objetosAsociadosList" />
+
+</xsd:schema>

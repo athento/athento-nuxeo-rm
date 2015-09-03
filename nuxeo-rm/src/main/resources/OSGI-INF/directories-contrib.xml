@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+
+<component name="org.yerbabuena.rm.directories">
+
+	
+	<extension target="org.nuxeo.ecm.directory.sql.SQLDirectoryFactory"
+		point="directories">
+
+		<directory name="valoresFase">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<table>valoresFase</table>
+			<idField>id</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<dataFile>directories/valoresFase.csv</dataFile>
+			<createTablePolicy>always</createTablePolicy>
+		</directory>
+
+		<directory name="rmConfiguracion">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<table>rmConfiguracion</table>
+			<idField>id</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<dataFile>directories/rmConfiguracion.csv</dataFile>
+			<createTablePolicy>on_missing_columns</createTablePolicy>
+		</directory>
+
+		<directory name="dispositivos">
+			<schema>dispositivos</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<table>dispositivosDirectory</table>
+			<idField>idDispositivo</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<dataFile>directories/dispositivos.csv</dataFile>
+			<createTablePolicy>on_missing_columns</createTablePolicy>
+		</directory>
+
+	</extension>
+
+	<extension target="org.nuxeo.ecm.platform.forms.layout.WebLayoutManager"
+		point="layouts">
+
+		<layout name="dispositivos_layout">
+			<templates>
+				<template mode="any">
+					/directory/directory_layout_template.xhtml
+				</template>
+			</templates>
+			<rows>
+				<row>
+					<widget>idDispositivo</widget>
+				</row>
+				<row>
+					<widget>nombreDispositivo</widget>
+				</row>
+			</rows>
+			<widget name="idDispositivo" type="text">
+				<labels>
+					<label mode="any">Id Dispositivo</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>dispAlm:idDispositivo</field>
+				</fields>
+				<properties widgetMode="edit">
+					<property name="styleClass">dataInputText</property>
+				</properties>
+			</widget>
+			<widget name="nombreDispositivo" type="text">
+				<labels>
+					<label mode="any">Nombre Dispositivo</label>
+				</labels>
+				<translated>true</translated>
+				<fields>
+					<field>dispAlm:nombreDispositivo</field>
+				</fields>
+				<properties widgetMode="edit">
+					<property name="styleClass">dataInputText</property>
+				</properties>
+			</widget>
+		</layout>
+
+	</extension>
+
+
+	<extension target="org.nuxeo.ecm.directory.ui.DirectoryUIManager"
+		point="directories">
+
+		<directory name="valoresFase" layout="vocabulary" sortField="label" />
+		<directory name="rmConfiguracion" layout="vocabulary"
+			sortField="label" />
+		<directory name="dispositivos" layout="dispositivos_layout"
+			sortField="nombreDispositivo" />
+
+	</extension>
+
+</component>

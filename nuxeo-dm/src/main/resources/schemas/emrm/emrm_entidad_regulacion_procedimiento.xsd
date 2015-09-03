@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:procedimiento="http://rm.administracion.es/emrm/entidad/regulacion/procedimiento"
+	targetNamespace="http://rm.administracion.es/emrm/entidad/regulacion/procedimiento">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD EMrm aplicables a
+			la PROCEDIMIENTO de la entidad Regulacion.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="emrm_entidad_regulacion.xsd" />
+
+	<xsd:element name="CodificacionCooperacionInteradministrativa"
+		type="xsd:string" /> <!-- EMrm.27 -->
+
+</xsd:schema>
