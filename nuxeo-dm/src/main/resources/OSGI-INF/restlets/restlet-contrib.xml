@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<component name="es.rm.platform.RestletContrib">
+
+	<extension
+		target="org.nuxeo.ecm.platform.ui.web.restAPI.service.PluggableRestletService"
+		point="restlets">
+
+		<documentation>
+			GET /nuxeo/restAPI/{username}/user
+
+			Parameters:
+			-
+			username: es el
+			nickname del usuario a obtener desde el repositorio
+
+		</documentation>
+		<restletPlugin name="getUser"
+			class="es.rm.platform.restlet.GetUserRestlet" enabled="true"
+			useSeam="true">
+			<urlPatterns>
+				<urlPattern>/{username}/user</urlPattern>
+			</urlPatterns>
+		</restletPlugin>
+
+		<documentation>
+			GET /nuxeo/restAPI/{username}/newUser
+
+			Parameters:
+			-
+			username: es el
+			nickname del nuevo usuario que se va a crear en el
+			repositorio
+
+		</documentation>
+		<restletPlugin name="newUser"
+			class="es.rm.platform.restlet.NewUserRestlet" enabled="true"
+			useSeam="true">
+			<urlPatterns>
+				<urlPattern>/{username}/newUser</urlPattern>
+			</urlPatterns>
+		</restletPlugin>
+
+	</extension>
+</component>

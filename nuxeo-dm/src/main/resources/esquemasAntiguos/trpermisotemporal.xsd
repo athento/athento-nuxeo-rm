@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns:trpermisotemporal="http://administracionelectronica.gob.es/ENI/XSD/v1.0/traza/trpermisotemporal" 
+			targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/traza/trpermisotemporal" 
+			elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS tr-permisotemporal EN APLICACION TRAZA </xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:element name="numeroPermisoTemporal" type="xsd:integer" />
+	<xsd:element name="tipoMatricula" type="xsd:string" />
+	<xsd:element name="numeroBastidor" type="xsd:string" />
+	<xsd:element name="fechaCaducidadPermiso" type="xsd:date" />
+		
+		
+</xsd:schema>

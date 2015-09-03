@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<component name="es.rm.platform.rm.events.contribution">
+	
+	<extension target="org.nuxeo.ecm.platform.audit.service.NXAuditEventsService"
+		point="event">
+		<event name="finPeriodoRetencion" />
+	</extension>
+
+</component>

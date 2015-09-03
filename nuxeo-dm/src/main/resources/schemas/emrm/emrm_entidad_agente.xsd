@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD EMrm aplicables a
+			la ENTIDAD Agente.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="emrm_entidad.xsd" />
+
+	<xsd:element name="Permisos" type="xsd:string" />
+
+	<xsd:element name="TipoContacto" type="TTipoContacto" />
+	<xsd:complexType name="TTipoContacto">
+		<xsd:sequence>
+			<xsd:element name="valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="DatoContacto" type="TDatoContacto" />
+	<xsd:complexType name="TDatoContacto">
+		<xsd:sequence>
+			<xsd:element name="valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="Idioma" type="xsd:string" />
+	
+</xsd:schema>

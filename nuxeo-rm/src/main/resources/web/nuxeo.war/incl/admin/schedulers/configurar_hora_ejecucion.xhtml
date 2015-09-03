@@ -1,0 +1,66 @@
+<div xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:nxd="http://nuxeo.org/nxweb/document"
+	xmlns:nxdir="http://nuxeo.org/nxdirectory"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:nxl="http://nuxeo.org/nxforms/layout"
+	xmlns:nxu="http://nuxeo.org/nxweb/util"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<h3>
+		<h:outputText value="#{messages['label.configure.scheduler.execution']}" />
+	</h3>
+
+	<h:form ajaxSubmit="true">
+		<a4j:outputPanel id="configure_schedulers_time_execution">
+			<table class="dataInput">
+				<tr>
+					<td class="labelColumn"><h:outputLabel value="#{messages['label.scheduler.hour.execution']}" /></td>
+					<td class="fieldColumn">
+						
+						<h:inputText id="hora_input" value="#{rmConfiguration.horaScheduler}" 
+							validatorMessage="#{messages['label.validator.formato.hora.incorrecta']}">
+							<f:validateLongRange minimum="0" maximum="23" />	
+						</h:inputText>
+						<h:message for="hora_input" styleClass="errorMessage"/>
+					</td>
+				</tr>
+				<tr>
+					<td class="labelColumn"><h:outputLabel value="#{messages['label.scheduler.minute.execution']}" /></td>
+					<td class="fieldColumn">
+						<h:inputText id="minuto_input" value="#{rmConfiguration.minutoScheduler}"
+							validatorMessage="#{messages['label.validator.formato.minuto.incorrecto']}">
+							<f:validateLongRange minimum="0" maximum="59" />
+						</h:inputText>
+						<h:message for="minuto_input" styleClass="errorMessage" />
+					</td>
+				</tr>
+			</table>
+			
+			<div class="buttons">
+
+				<h:commandButton id="guardar" value="#{messages['command.save']}"
+					styleClass="button"
+					action="#{rmConfiguration.guardarEjecucionScheduler()}"
+					reRender="configure_schedulers_time_execution" onclick="showSpinner();" />
+
+				<img src="#{baseURL}img/standart_waiter.gif" style="display: none"
+					id="spinner" />
+
+				<script type="text/javascript">
+				
+					function showSpinner() {
+						jQuery("#spinner").show();
+					}
+				
+				</script>
+
+			</div>
+		</a4j:outputPanel>
+
+	</h:form>
+
+</div>

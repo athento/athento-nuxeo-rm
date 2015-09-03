@@ -1,0 +1,35 @@
+<f:subview xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:nxu="http://nuxeo.org/nxweb/util"
+	xmlns:nxdir="http://nuxeo.org/nxdirectory"
+	xmlns:nxl="http://nuxeo.org/nxforms/layout" id="#{widget.id}">
+
+	<a4j:outputPanel id="id_dispositivo_widget">
+		 	<c:if test="#{widget.mode != 'edit'}">
+				<h:outputText value="#{dipositivosBean.getNombreDispositivosListado(field_0) != null ? dipositivosBean.getNombreDispositivosListado(field_0) : ''}" />
+			</c:if>
+		
+			<c:if test="#{widget.mode == 'edit' and layout.mode == 'edit'}">
+				<a4j:region>
+					 <h:selectOneListbox  value="#{field_0}" id="#{widget.id}_select" size="#{dipositivosBean.getNumLineas()}" >
+						<f:selectItems value="#{dipositivosBean.getListDispositivos()}" /> 
+						<a4j:support event="onchange" />
+					</h:selectOneListbox>
+					<h:message styleClass="errorMessage" for="#{widget.id}_select" id="#{widget.id}_message" />
+				</a4j:region>
+			</c:if>
+		
+			<c:if test="#{widget.mode == 'edit' and layout.mode == 'create'}">
+				<a4j:region>
+					 <h:selectOneListbox  value="#{field_0}" id="#{widget.id}_select2" size="#{dipositivosBean.getNumLineas()}" >
+						<f:selectItems
+							value="#{dipositivosBean.getListDispositivos()}" />
+							<a4j:support event="onchange" />
+					</h:selectOneListbox>
+					<h:message styleClass="errorMessage" for="#{widget.id}_select2"	id="#{widget.id}_message2" />
+				</a4j:region>
+			</c:if> 
+	</a4j:outputPanel>
+</f:subview>

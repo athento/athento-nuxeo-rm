@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:eexpedient="http://administracionelectronica.gob.es/ENI/XSD/v1.0/expe"
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/expe"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS
+			obligatorios ENI para el expediente electronico.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:element name="VersionNTI" type="xsd:string" /> <!-- URI -->
+	<xsd:element name="Identificador" type="xsd:string" />
+	<xsd:element name="Organo" type="eexpedient:TOrgano" />
+	<xsd:complexType name="TOrgano">
+		<xsd:sequence>
+			<xsd:element name="Valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="FechaApertura" type="xsd:date" />
+	<xsd:element name="Clasificacion" type="xsd:string" />
+	<xsd:element name="Estado" type="xsd:string" /> <!-- En el intercambio -->
+	<xsd:element name="Interesado" type="eexpedient:TInteresado" />
+	<xsd:complexType name="TInteresado">
+		<xsd:sequence>
+			<xsd:element name="Valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="TipoFirma" type="eexpedient:TTipoFirma" />
+	<xsd:complexType name="TTipoFirma">
+		<xsd:sequence>
+			<xsd:element name="Valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ValorCSV" type="eexpedient:TValorCSV" />
+	<xsd:complexType name="TValorCSV">
+		<xsd:sequence>
+			<xsd:element name="Valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="DefinicionGeneracionCSV" type="eexpedient:TDefinicionGeneracionCSV" />
+	<xsd:complexType name="TDefinicionGeneracionCSV">
+		<xsd:sequence>
+			<xsd:element name="Valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

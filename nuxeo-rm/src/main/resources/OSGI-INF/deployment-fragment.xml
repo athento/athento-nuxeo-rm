@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<fragment version="1">
+
+	<require>es.rm.platform.dm</require>
+	<require>org.nuxeo.ecm.platform.content.template</require>
+
+	<extension target="application#MODULE">
+		<module>
+			<java>${bundle.fileName}</java>
+		</module>
+	</extension>
+
+
+	<extension target="pages#PAGES">
+		<page view-id="/crear_calendario.faces.xhtml">
+			Create new document in #{currentDocument.name}
+		</page>
+	</extension>
+
+
+	<extension target="faces-config#NAVIGATION">
+		<!-- generic pages -->
+		<navigation-case>
+			<from-outcome>crear_documento_rm</from-outcome>
+			<to-view-id>/crear_documento_rm.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+
+		<navigation-case>
+			<from-outcome>crear_calendario</from-outcome>
+			<to-view-id>/crear_calendario.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</extension>
+
+	<install>
+		<unzip from="${bundle.fileName}" to="/" prefix="web">
+			<include>web/nuxeo.war/**</include>
+		</unzip>
+
+		<delete path="${bundle.fileName}.tmp" />
+		<mkdir path="${bundle.fileName}.tmp" />
+		<unzip from="${bundle.fileName}" to="${bundle.fileName}.tmp">
+			<include>l10n/**</include>
+		</unzip>
+
+		<append from="${bundle.fileName}.tmp/l10n/messages_es.properties"
+			to="nuxeo.war/WEB-INF/classes/messages_es.properties" addNewLine="true" />
+		<append from="${bundle.fileName}.tmp/l10n/messages.properties"
+			to="nuxeo.war/WEB-INF/classes/messages.properties" addNewLine="true" />
+		<delete path="${bundle.fileName}.tmp" />
+	</install>
+
+</fragment>
+

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<component name="es.rm.platform.SchemaAthentoContrib">
+
+	<documentation>
+		Definición de esquemas de metadatos elementos de
+		Athento.
+	</documentation>
+	<extension target="org.nuxeo.ecm.core.schema.TypeService"
+		point="schema">
+		<schema name="referencia" src="schemas/athento/athento_referencia.xsd"
+			prefix="ref" />
+		<schema name="publicacion" src="schemas/athento/athento_publicacion.xsd"
+			prefix="pub" />
+		<schema name="email" src="schemas/athento/email.xsd" 
+			prefix="email" />
+	</extension>
+
+</component>

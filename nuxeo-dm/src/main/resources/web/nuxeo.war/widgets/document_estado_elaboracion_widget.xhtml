@@ -1,0 +1,33 @@
+<f:subview xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+  xmlns:nxu="http://nuxeo.org/nxweb/util"
+  xmlns:nxdir="http://nuxeo.org/nxdirectory"
+  xmlns:c="http://java.sun.com/jstl/core"
+  xmlns:nxl="http://nuxeo.org/nxforms/layout" id="#{widget.id}">
+
+  <c:if test="#{widget.mode != 'create' and widget.mode != 'edit'}">
+	
+	<h:outputText value="#{field}" />
+    
+  </c:if>
+
+  <c:if test="#{widget.mode == 'create' or widget.mode == 'edit'}">
+
+    <h:selectOneMenu id="estado_elaboracion" value="#{field}">	
+		
+		<f:selectItem itemValue="EE01" itemLabel="#{messages['label.valorEstado.original']}"/>
+		<f:selectItem itemValue="EE02" itemLabel="#{messages['label.valorEstado.ce.cambio.formato']}"/>
+		<f:selectItem itemValue="EE03" itemLabel="#{messages['label.valorEstado.ce.documento.papel']}"/>
+		<f:selectItem itemValue="EE04" itemLabel="#{messages['label.valorEstado.ce.parcial.autentica']}"/>
+		<f:selectItem itemValue="EE99" itemLabel="#{messages['label.valorEstado.otros']}"/>
+				 	 
+		<a4j:support event="onchange" ajaxSingle="true" action="#{rmUtilsActions.toogleValue(field)}" 
+		reRender="panel-id-doc-origen, #{rmUtilsActions.reRenderIdDocOrigen(widget.name)}_layouts-panel"/>
+	</h:selectOneMenu> 
+      
+      
+
+  </c:if>
+
+</f:subview>

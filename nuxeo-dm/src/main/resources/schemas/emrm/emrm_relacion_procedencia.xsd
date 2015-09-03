@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:procedencia="http://rm.administracion.es/emrm/entidad/relacion/procedencia"
+	targetNamespace="http://rm.administracion.es/emrm/entidad/relacion/procedencia">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD EMrm aplicables a
+			la PROCEDENCIA de la ENTIDAD RELACIONES.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="emrm_relacion.xsd" />
+
+	<xsd:element name="RolRelacionEntidadOrigen" type="xsd:integer" />
+	<xsd:element name="RolRelacionEntidadDestino" type="xsd:integer" />
+	<xsd:element name="IdEntidadOrigen" type="xsd:string" />
+	<xsd:element name="IdEntidadDestino" type="xsd:string" />
+
+</xsd:schema>

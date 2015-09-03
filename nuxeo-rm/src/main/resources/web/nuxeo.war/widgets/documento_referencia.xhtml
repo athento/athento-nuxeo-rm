@@ -1,0 +1,28 @@
+<f:subview id="#{widget.id}_add" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:nxu="http://nuxeo.org/nxweb/util"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:nxd="http://nuxeo.org/nxweb/document">
+
+	<c:if test="#{not empty documentoEReferencia}">
+		<a4j:outputPanel>
+			<nxd:restDocumentLink document="#{documentoEReferencia}">
+				<span title="#{documentoEReferencia.dc.description}">
+					#{nxd:titleOrId(documentoEReferencia)} </span>
+			</nxd:restDocumentLink>
+
+			<c:if test="#{not documentoEReferencia.latestVersion}">
+
+				<h:outputLabel value="#{messages['label.version.mas.reciente']}"
+					style="padding-right: 4px; padding-left: 15px; color: red;" />
+
+				<h:commandLink value="#{messages['label.actualizar.referencia']}"
+					action="#{declararDocumentoE.actualizarReferencia()}" 
+					onclick="if (!window.confirm('#{messages['label.confirm.actualizar.referencia']}')) { return false; }" />
+
+			</c:if>
+		</a4j:outputPanel>
+	</c:if>
+
+</f:subview>

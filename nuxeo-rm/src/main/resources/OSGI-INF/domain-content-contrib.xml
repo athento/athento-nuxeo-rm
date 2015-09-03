@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<component name="org.yerbabuena.rm.domain.content.config">
+
+	<extension
+		target="org.nuxeo.ecm.platform.content.template.service.ContentTemplateService"
+		point="factoryBinding">
+
+		<factoryBinding name="DomainFactory" factoryName="SimpleTemplateFactory"
+			targetType="Domain">
+			<template>
+				<templateItem typeName="WorkspaceRoot" id="workspaces"
+					title="Workspaces" description="Workspaces" />
+				<templateItem typeName="SectionRoot" id="sections"
+					title="Sections" description="Sections" />
+				<templateItem typeName="TemplateRoot" id="templates"
+					title="Templates" description="Root of workspaces templates" />
+				<templateItem typeName="CalendarioDCRoot" id="calendarioDCRoot"
+					title="Calendarios de Conservacion" description="Zona de creación de los calendarios de conservacion" />
+				<templateItem typeName="CdC" id="rMRoot"
+					title="Archivo" description="Record Management" />
+			</template>
+		</factoryBinding>
+
+	</extension>
+
+</component>

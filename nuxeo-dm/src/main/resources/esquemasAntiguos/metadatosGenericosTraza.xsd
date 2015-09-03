@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:trazagendocmeta="http://administracionelectronica.gob.es/ENI/XSD/v1.0/documento-e/metadatos-genericos-traza" 
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/documento-e/metadatos-genericos-traza"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS GENERICOS EN APLICACION TRAZA </xsd:documentation>
+	</xsd:annotation>
+	
+
+	<xsd:element name="NombreFormato" type="xsd:string"/>
+	<xsd:element name="Tamaño" type="xsd:long"/>
+	<xsd:element name="ContenidoIntelectual" type="trazagendocmeta:stringList"/>
+	<xsd:element name="FechaDocumento" type="xsd:date"/>
+	<xsd:element name="Caja" type="xsd:string"/>
+	<xsd:element name="posicion" type="xsd:string"/>
+	
+	<xsd:complexType name="stringList">
+	    <xsd:sequence>
+	      <xsd:element name="item" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+	    </xsd:sequence>
+	 </xsd:complexType>
+		
+</xsd:schema>

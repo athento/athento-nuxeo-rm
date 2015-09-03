@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:calasoc="http://administracionelectronica.gob.es/ENI/XSD/v1.0/cadd"
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/cadd"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">
+			Esquema que almacena metadatos específicos de Carpetas de Documentos y Expedientes
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:element name="estado" type="xsd:string" default="abierta"/>
+	
+</xsd:schema>

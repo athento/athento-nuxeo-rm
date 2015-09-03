@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:edocument="http://administracionelectronica.gob.es/ENI/XSD/v1.0/doce"
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/doce"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS
+			obligatorios ENI para el documento electronico.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:element name="VersionNTI" type="xsd:string" /> <!-- URI -->
+	<xsd:element name="Identificador" type="xsd:string" />
+	<xsd:element name="Organo" type="edocument:TOrgano" />
+	<xsd:complexType name="TOrgano">
+		<xsd:sequence>
+			<xsd:element name="Valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="FechaCaptura" type="xsd:date" />
+	<xsd:element name="Origen" type="xsd:boolean" />
+	<xsd:element name="NombreFormato" type="xsd:string" /> <!-- Tabla codificada -->
+	<xsd:element name="TipoDocumental" type="xsd:string" />
+
+	<xsd:element name="TipoFirma" type="edocument:TTipoFirma" />
+	<xsd:complexType name="TTipoFirma">
+		<xsd:sequence>
+			<xsd:element name="Valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ValorCSV" type="edocument:TValorCSV" />
+	<xsd:complexType name="TValorCSV">
+		<xsd:sequence>
+			<xsd:element name="Valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="RegulacionGeneracionCSV" type="edocument:TRegulacionGeneracionCSV" />
+	<xsd:complexType name="TRegulacionGeneracionCSV">
+		<xsd:sequence>
+			<xsd:element name="Valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="ValorEstadoElaboracion" type="xsd:string" />
+	<xsd:element name="IdentificadorDocumentoOrigen" type="xsd:string" /> <!-- Condicionado a EstadoElaboracion = Copia electronica autentica o Copia 
+		electronica parcial autentica -->
+
+</xsd:schema>

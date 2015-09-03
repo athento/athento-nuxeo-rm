@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<component name="org.yerbabuena.rm.SeamRemoteContrib">
+	<extension point="remotableSeamBeans"
+		target="org.nuxeo.ecm.platform.ui.web.SeamRemotingJSBuilderComponent">
+		<remotableSeamBeans>
+			<beans>
+				<bean>archivoBean</bean>
+			</beans>
+		</remotableSeamBeans>
+	</extension>
+</component>

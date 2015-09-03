@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<component name="org.yerbabuena.rm.workflows.test">
+
+	<extension target="org.yerbabuena.rm.archivo.service.ArchivoService"
+		point="workflow">
+		
+		<workflow id="workflow1" />
+		<workflow id="workflow2" />
+		
+	</extension>
+</component>

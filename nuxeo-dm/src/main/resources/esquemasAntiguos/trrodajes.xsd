@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			xmlns:trrodajes="http://administracionelectronica.gob.es/ENI/XSD/v1.0/traza/trrodajes" 
+			targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/traza/trrodajes" 
+			elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS tr-rodajes EN APLICACION TRAZA </xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:element name="numeroExpediente" type="xsd:string" />
+	<xsd:element name="tipo" type="xsd:string" />
+		
+</xsd:schema>

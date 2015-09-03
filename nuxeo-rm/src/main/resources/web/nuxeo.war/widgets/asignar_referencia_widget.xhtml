@@ -1,0 +1,12 @@
+<f:subview id="#{widget.id}_add" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:nxu="http://nuxeo.org/nxweb/util"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core">
+	
+	<a4j:outputPanel>
+			<a4j:commandLink id="link_asignar" value="#{messages['label.link.asignar']}" action="#{declararDocumentoE.asociarReferencia(field_0)}" 
+				reRender="tab_referencia_form, facesStatusMessagePanel" onclick="if (!window.confirm('#{messages['label.confirm.asignar.referencia']}')) { return false; }"/>
+	</a4j:outputPanel>
+
+</f:subview>

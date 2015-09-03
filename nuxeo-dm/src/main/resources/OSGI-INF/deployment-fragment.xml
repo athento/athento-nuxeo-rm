@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<fragment version="1">
+
+	<require>org.nuxeo.ecm.platform.lang
+	</require>
+	<require>org.nuxeo.ecm.platform.notification.core
+	</require>
+
+	<extension target="application#MODULE">
+		<module>
+			<java>${bundle.fileName}</java>
+		</module>
+	</extension>
+	
+	<!--  
+	<extension target="pages#PAGES">
+		<page view-id="/nxstartup.xhtml" action="#{rmStartupHelper.goHome()}" />
+	</extension>
+	-->
+
+	<install>
+		<unzip from="${bundle.fileName}" to="/" prefix="web">
+			<include>web/nuxeo.war/**</include>
+		</unzip>
+		
+		<unzip from="${bundle.fileName}" to="/schemas" prefix="schemas/emrm">
+			<include>schemas/emrm/**</include>
+			<include>schemas/eni/**</include>
+			<include>schemas/athento/**</include>
+		</unzip>
+
+		<delete path="${bundle.fileName}.tmp" />
+		<mkdir path="${bundle.fileName}.tmp" />
+		<unzip from="${bundle.fileName}" to="${bundle.fileName}.tmp">
+			<include>l10n/**</include>
+		</unzip>
+
+		<append from="${bundle.fileName}.tmp/l10n/messages_es.properties"
+			to="nuxeo.war/WEB-INF/classes/messages_es.properties" addNewLine="true" />
+		<append from="${bundle.fileName}.tmp/l10n/messages.properties"
+			to="nuxeo.war/WEB-INF/classes/messages.properties" addNewLine="true" />
+		<delete path="${bundle.fileName}.tmp" />
+	</install>
+
+</fragment>
+

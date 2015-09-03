@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+
+<component name="es.rm.platform.DirectoryContrib">
+
+	<extension target="org.nuxeo.ecm.directory.sql.SQLDirectoryFactory"
+		point="directories">
+
+		<directory name="tipoDocumental">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<table>tipoDocumental</table>
+			<idField>id</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<dataFile>directories/tipoDocumental.csv</dataFile>
+			<createTablePolicy>on_missing_columns</createTablePolicy>
+		</directory>
+
+		<directory name="rolRelacion">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<table>rolRelacion</table>
+			<idField>id</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<dataFile>directories/rolRelacion.csv</dataFile>
+			<createTablePolicy>on_missing_columns</createTablePolicy>
+		</directory>
+
+		<directory name="soporteOrigen">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<table>soporteOrigen</table>
+			<idField>id</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<dataFile>directories/soporteOrigen.csv</dataFile>
+			<createTablePolicy>on_missing_columns</createTablePolicy>
+		</directory>
+
+		<directory name="valorEstadoElaboracion">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<table>valorEstadoElaboracion</table>
+			<idField>id</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<dataFile>directories/valorEstadoElaboracion.csv</dataFile>
+			<createTablePolicy>on_missing_columns</createTablePolicy>
+		</directory>
+
+		<directory name="tipoFirma">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<table>tipoFirma</table>
+			<idField>id</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<dataFile>directories/tipoFirma.csv</dataFile>
+			<createTablePolicy>on_missing_columns</createTablePolicy>
+		</directory>
+
+		<directory name="origen">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<table>origen</table>
+			<idField>id</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<dataFile>directories/origen.csv</dataFile>
+			<createTablePolicy>on_missing_columns</createTablePolicy>
+		</directory>
+
+		<directory name="valoresEstado">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<table>valoresEstado</table>
+			<idField>id</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<dataFile>directories/valoresEstado.csv</dataFile>
+			<createTablePolicy>always</createTablePolicy>
+		</directory>
+
+		<directory name="valoresEntidad">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<table>valoresEntidad</table>
+			<idField>id</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<dataFile>directories/entidad.csv</dataFile>
+			<createTablePolicy>on_missing_columns</createTablePolicy>
+		</directory>
+
+		<directory name="cicloVida">
+			<schema>vocabulary</schema>
+			<dataSource>java:/nxsqldirectory</dataSource>
+			<cacheTimeout>3600</cacheTimeout>
+			<cacheMaxSize>1000</cacheMaxSize>
+			<table>cicloVida</table>
+			<idField>id</idField>
+			<autoincrementIdField>false</autoincrementIdField>
+			<dataFile>directories/ciclovida.csv</dataFile>
+			<createTablePolicy>on_missing_columns</createTablePolicy>
+		</directory>
+	</extension>
+</component>

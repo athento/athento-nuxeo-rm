@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<component name="es.rm.platform.EventsContrib">
+	<extension target="org.nuxeo.ecm.core.event.EventServiceComponent"
+		point="listener">
+
+		<listener name="PropagacionMetadatosListener" async="false"
+			postCommit="false" class="es.rm.platform.api.utils.PropagarMetadatosListener"
+			priority="100">
+			<event>documentCreated</event>
+		</listener>
+
+	</extension>
+</component>

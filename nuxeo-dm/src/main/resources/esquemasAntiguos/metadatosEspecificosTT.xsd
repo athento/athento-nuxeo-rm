@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:especttdocmeta="http://administracionelectronica.gob.es/ENI/XSD/v1.0/documento-e/metadatos-especificos-traza/tt" 
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/documento-e/metadatos-especificos-traza/tt"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS ESPECIFICOS TARJETAS TRANSPORTES EN APLICACION TRAZA  </xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:element name="metadatosGenericosTraza" type="especttdocmeta:TipoMetadatosEspecificosTt"/>
+	
+	<xsd:complexType name="TipoMetadatosEspecificosTt">
+		<xsd:sequence>
+			<xsd:element name="NumeroTarjeta" type="xsd:string"/>
+			<xsd:element name="TipoTarjeta" type="especttdocmeta:tiposTarjeta"/>
+			<xsd:element name="PaisOrigen" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="tiposTarjeta">
+		<xsd:restriction base="xsd:string">
+			<xsd:annotation>
+				<xsd:documentation xml:lang="es">
+					/*Tipos definidos en Traza*/
+					<xsd:enumeration value="OperadorTransporte"/>
+					<xsd:enumeration value="Comunitaria"/>
+				</xsd:documentation>
+			</xsd:annotation>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+		
+</xsd:schema>

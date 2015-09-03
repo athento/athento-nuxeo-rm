@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:calasoc="http://administracionelectronica.gob.es/ENI/XSD/v1.0/calendarioConservacion"
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/calendarioConservacion"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">
+			Esquema que sirve para asociar un calendario de Conservación a otro elemento
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:element name="id_calendario" type="xsd:string" />
+	
+	<xsd:element name="fase_actual" type="xsd:string" />
+	<xsd:element name="fecha_entrada_fase" type="xsd:date" />
+	
+</xsd:schema>

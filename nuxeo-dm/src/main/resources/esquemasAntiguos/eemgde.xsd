@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:eemgde="http://administracionelectronica.gob.es/ENI/XSD/v1.0/traza/eemgde" 
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/traza/eemgde"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS eemgde EN APLICACION TRAZA </xsd:documentation>
+	</xsd:annotation>
+	
+	<!-- eEMGDE6 -->
+	<xsd:element name="entidadRelacionada" type="eemgde:tipoEntidadRelacionada"/>
+	
+	<!-- eEMGDE14 -->
+	<xsd:element name="caracteristicasTecnicas" type="eemgde:tipoCaracteristicasTecnicas"/>
+	<xsd:element name="firma" type="eemgde:tipoFirma"/>
+		
+	
+	<!-- eEMGDE6.1 y eEMGDE6.3 -->
+	<xsd:complexType name="tipoEntidadRelacionada">
+		<xsd:sequence>
+			<xsd:element name="idEntidadRelacionada" type="xsd:string"/>
+			<xsd:element name="rolRelacion" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- eEMGDE14.1 y eEMGDE14.2 -->
+	<xsd:complexType name="tipoCaracteristicasTecnicas">
+		<xsd:sequence>
+			<xsd:element name="soporteOrigen" type="xsd:string"/> <!-- tipos en soporteOrigen.csv -->
+			<xsd:element name="nombreFormato" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="tipoFirma">
+		<xsd:sequence>
+			<xsd:element name="tipoDeFirma" type="xsd:string"/> 
+			<xsd:element name="formatoDeFirma" type="xsd:string"/>
+			<xsd:element name="rolDeFirma" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+</xsd:schema>

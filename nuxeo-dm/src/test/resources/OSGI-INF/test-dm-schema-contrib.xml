@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<component name="org.nuxeo.training.book.coreTypes">
+
+	<extension target="org.nuxeo.ecm.core.schema.TypeService"
+		point="schema">
+		<schema name="grupofondo" src="schemas/grupofondo.xsd" prefix="grfondo" />
+	</extension>
+
+</component>

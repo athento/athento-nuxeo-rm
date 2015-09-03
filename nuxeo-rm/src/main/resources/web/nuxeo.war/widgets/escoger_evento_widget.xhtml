@@ -1,0 +1,34 @@
+<f:subview id="#{widget.id}_add" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+	xmlns:nxu="http://nuxeo.org/nxweb/util"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core">
+
+	<c:if test="#{widget.mode == 'edit'}">
+
+		<a4j:outputPanel>
+			<h:inputText value="#{field_0}" />
+
+			<h:selectOneMenu value="#{field_1}">
+				<f:selectItem itemValue="="/>
+				<f:selectItem itemValue="&gt;"/>
+				<f:selectItem itemValue="&lt;"/>
+				<f:selectItem itemValue="&gt;="/>
+				<f:selectItem itemValue="&lt;="/>
+				<f:selectItem itemValue="!="/>
+				
+				<a4j:support event="onchange" />
+			</h:selectOneMenu>
+
+			<h:inputText value="#{field_2}" />
+		</a4j:outputPanel>
+
+	</c:if>
+
+	<c:if test="#{nxl:isLikeViewMode(widget.mode)}">
+		<h:outputText value="#{field_0}" style="padding-right: 5px;"/>
+		<h:outputText value="#{field_1}" style="padding-right: 5px;"/>
+		<h:outputText value="#{field_2}" />
+	</c:if>
+
+</f:subview>

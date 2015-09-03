@@ -1,0 +1,6 @@
+id,label,obsolete
+"EE01","label.valorEstado.original","0"
+"EE02","label.valorEstado.ce.cambio.formato","0"
+"EE03","label.valorEstado.ce.documento.papel","0"
+"EE04","label.valorEstado.ce.parcial.autentica","0"
+"EE99","label.valorEstado.otros","0"

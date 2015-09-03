@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:ref="http://rm.administracion.es/athento/referencia"
+	targetNamespace="http://rm.administracion.es/athento/referencia">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS PARA
+			REFERENCIA
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="base.xsd" />
+
+	<xsd:element name="originId" type="xsd:string" />
+	<xsd:element name="destinyId" type="xsd:string" />
+	<xsd:element name="version" type="xsd:string" />
+
+</xsd:schema>

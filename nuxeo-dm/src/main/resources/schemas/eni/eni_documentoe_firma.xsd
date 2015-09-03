@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:edocument="http://administracionelectronica.gob.es/ENI/XSD/v1.0/doce/firma"
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/doce/firma"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS ENI para
+			la firma en
+			el documento electronico.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:element name="FirmaBase64" type="edocument:TFirmaBase64" />
+	<xsd:complexType name="TFirmaBase64">
+		<xsd:sequence>
+			<xsd:element name="Valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="ReferenciaFirma" type="xsd:string" />
+
+</xsd:schema>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:persona="http://rm.administracion.es/emrm/entidad/agente/persona"
+	targetNamespace="http://rm.administracion.es/emrm/entidad/agente/persona">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD EMrm aplicables a
+			la PERSONA de la ENTIDAD Agente.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="emrm_entidad_agente.xsd" />
+
+	<xsd:element name="Puesto" type="xsd:string" />
+	
+</xsd:schema>

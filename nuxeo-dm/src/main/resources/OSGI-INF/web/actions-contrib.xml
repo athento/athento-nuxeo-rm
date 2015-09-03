@@ -1,0 +1,62 @@
+<component name="es.rm.platform.ActionContrib">
+
+	<require>org.nuxeo.ecm.platform.userworkspace.actions
+	</require>
+
+	<extension target="org.nuxeo.ecm.platform.actions.ActionService"
+		point="actions">
+
+		<action id="documents" link="view_documents" label="label.main.tab.documents"
+			order="40">
+			<category>MAIN_TABS</category>
+			<filter-id>only_for_manager</filter-id>
+		</action>
+
+		<action id="SHOW_REPOSITORY"
+			link="#{userWorkspaceManagerActions.navigateToOverallWorkspace}"
+			enabled="false" label="command.user.return.to.repository" icon="/icons/go_to_repository.gif"
+			order="60">
+			<category>USER_MENU_ACTIONS</category>
+			<filter-id>isInsidePersonalWorkspace
+			</filter-id>
+		</action>
+
+		<action id="SHOW_PERSONAL_WORKSPACE"
+			link="#{userWorkspaceManagerActions.navigateToCurrentUserPersonalWorkspace}"
+			enabled="false" label="command.user.personal.workspace" icon="/icons/show_personal_workspace.gif"
+			order="61">
+			<category>USER_MENU_ACTIONS</category>
+			<filter-id>not_anonymous</filter-id>
+			<filter-id>canAccessPersonalWorkspace
+			</filter-id>
+		</action>
+
+		<action id="Profile" link="user_center_fragment.xhtml" label="user.center.profile"
+			icon="/icons/profile.png" order="20">
+			<category>USER_CENTER</category>
+			<filter-id>only_for_manager</filter-id>
+		</action>
+
+		<action id="UsersGroupsHome" link="user_center_fragment.xhtml"
+			label="command.manageMembers" icon="/icons/users_groups.png" order="60">
+			<category>USER_CENTER</category>
+			<filter-id>not_readonly</filter-id>
+			<filter-id>only_for_manager</filter-id>
+		</action>
+
+		<action id="Notification" link="/incl/notification/user_subscriptions.xhtml"
+			label="user.center.notification" order="40" icon="/icons/notifications.png">
+			<category>USER_CENTER</category>
+			<filter-id>only_for_manager</filter-id>
+		</action>
+
+		<action id="AuthorizedApplication" link="user_center_fragment.xhtml"
+			label="user.center.authorizedApplication" order="50"
+			icon="/icons/authorized_apps.png">
+			<category>USER_CENTER</category>
+			<filter-id>only_for_manager</filter-id>
+		</action>
+
+	</extension>
+
+</component>

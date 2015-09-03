@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component name="es.rm.platform.TypesContrib">
+
+	<extension target="org.nuxeo.ecm.platform.types.TypeService"
+		point="types">
+
+		<type id="GrupoDeFondo">
+			<label>GrupoDeFondo</label>
+			<icon>/icons/folder_100_f.png</icon>
+			<bigIcon>/icons/folder_100_f.png</bigIcon>
+			<category>RM</category>
+			<description>documento.grupodefondo.description
+			</description>
+			<default-view>view_documents</default-view>
+			<layouts mode="any">
+				<layout>heading</layout>
+				<layout>file</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>file</layout>
+			</layouts>
+			<layouts mode="view">
+				<layout>file</layout>
+			</layouts>
+			<subtypes>
+				<type>Fondo</type>
+			</subtypes>
+		</type>
+
+		<type id="Fondo">
+			<label>Fondo</label>
+			<icon>/icons/folder_100_f.png</icon>
+			<bigIcon>/icons/folder_100_f.png</bigIcon>
+			<category>RM</category>
+			<description>documento.fondo.description
+			</description>
+			<default-view>view_documents</default-view>
+			<layouts mode="any">
+				<layout>heading</layout>
+				<layout>file</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>file</layout>
+			</layouts>
+			<layouts mode="view">
+				<layout>file</layout>
+			</layouts>
+			<subtypes>
+				<type>Serie</type>
+			</subtypes>
+		</type>
+
+		<type id="Serie">
+			<label>Serie</label>
+			<icon>/icons/folder_100_f.png</icon>
+			<bigIcon>/icons/folder_100_f.png</bigIcon>
+			<category>RM</category>
+			<description>documento.serie.description
+			</description>
+			<default-view>view_documents</default-view>
+			<layouts mode="any">
+				<layout>heading</layout>
+				<layout>file</layout>
+				<layout>Serie</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>file</layout>
+				<layout>Serie</layout>
+			</layouts>
+			<layouts mode="view">
+				<layout>file</layout>
+				<layout>Serie</layout>
+			</layouts>
+			<subtypes>
+				<type>Expediente</type>
+				<type>Agregacion</type>
+			</subtypes>
+		</type>
+
+		<type id="DocSimple">
+			<label>Documento simple</label>
+			<icon>/icons/file.png</icon>
+			<bigIcon>/icons/file_100.png</bigIcon>
+			<category>SimpleDocument</category>
+			<description>documento.simple.description
+			</description>
+			<default-view>view_documents</default-view>
+			<layouts mode="any">
+				<layout>heading</layout>
+				<layout>file</layout>
+				<layout>DocSimple</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>file</layout>
+				<layout>DocSimple</layout>
+			</layouts>
+			<layouts mode="view">
+				<layout>file</layout>
+				<layout>DocSimple</layout>
+			</layouts>
+		</type>
+
+		<type id="Email">
+			<label>Email</label>
+			<icon>/icons/email.gif</icon>
+			<bigIcon>/icons/email_100.png</bigIcon>
+			<category>SimpleDocument</category>
+			<description>File.description</description>
+			<default-view>view_documents</default-view>
+			<layouts mode="any">
+				<layout>heading</layout>
+				<layout>file</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>file</layout>
+				<layout>dublincore</layout>
+			</layouts>
+			<!-- all content already on summary page -->
+			<layouts mode="view" />
+		</type>
+
+		<type id="Expediente">
+			<label>Expediente</label>
+			<icon>/icons/folder_100_f.png</icon>
+			<bigIcon>/icons/folder_100_f.png</bigIcon>
+			<category>Expediente</category>
+			<description>documento.expediente.description
+			</description>
+			<default-view>view_documents</default-view>
+			<layouts mode="any">
+				<layout>heading</layout>
+				<layout>Expediente</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>Expediente</layout>
+			</layouts>
+			<layouts mode="view">
+				<layout>Expediente</layout>
+			</layouts>
+			<subtypes>
+			    <type>DocSimple</type>
+			</subtypes>
+		</type>
+
+		<type id="Agregacion">
+			<label>Agregacion</label>
+			<icon>/icons/folder_100_f.png</icon>
+			<bigIcon>/icons/folder_100_f.png</bigIcon>
+			<category>Expediente</category>
+			<description>documento.agregaciondescription
+			</description>
+			<default-view>view_documents</default-view>
+			<layouts mode="any">
+				<layout>heading</layout>
+				<layout>file</layout>
+				<layout>Expediente</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>file</layout>
+				<layout>Expediente</layout>
+			</layouts>
+			<layouts mode="view">
+				<layout>file</layout>
+				<layout>Expediente</layout>
+			</layouts>
+			<subtypes>
+			    <type>DocSimple</type>
+			</subtypes>
+		</type>
+
+		<type id="Normativa">
+			<label>Normativa</label>
+			<icon>/icons/file.png</icon>
+			<bigIcon>/icons/file_100.png</bigIcon>
+			<category>SimpleDocument</category>
+			<description>normativa.description
+			</description>
+			<default-view>view_documents</default-view>
+			<layouts mode="any">
+				<layout>heading</layout>
+				<layout>file</layout>
+				<layout>Normativa</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>file</layout>
+				<layout>Normativa</layout>
+			</layouts>
+			<layouts mode="view">
+				<layout>file</layout>
+				<layout>Normativa</layout>
+			</layouts>
+		</type>
+
+		<type id="Procedencia">
+			<label>Procedencia</label>
+			<icon>/icons/file.png</icon>
+			<bigIcon>/icons/file_100.png</bigIcon>
+			<category>SimpleDocument</category>
+			<description>procedencia.description
+			</description>
+			<default-view>view_documents</default-view>
+			<layouts mode="any">
+				<layout>heading</layout>
+				<layout>file</layout>
+				<layout>Procedencia</layout>
+			</layouts>
+			<layouts mode="edit">
+				<layout>heading</layout>
+				<layout>file</layout>
+				<layout>Procedencia</layout>
+			</layouts>
+			<layouts mode="view">
+				<layout>file</layout>
+				<layout>Procedencia</layout>
+			</layouts>
+		</type>
+
+		<type id="Workspace">
+			<subtypes>
+				<type>GrupoDeFondo</type>
+			</subtypes>
+		</type>
+
+		<type id="Folder">
+			<subtypes>
+				<type>GrupoDeFondo</type>
+			</subtypes>
+		</type>
+		
+		<type id="GrupoDeFondo">
+			<subtypes>
+				<type>Fondo</type>
+			</subtypes>
+		</type>
+		
+		<type id="Fondo">
+			<subtypes>
+				<type>Serie</type>
+			</subtypes>
+		</type>
+		
+		<type id="Serie">
+			<subtypes>
+				<type>Expediente</type>
+				<type>Agregacion</type>
+			</subtypes>
+		</type>
+
+	</extension>
+
+</component>

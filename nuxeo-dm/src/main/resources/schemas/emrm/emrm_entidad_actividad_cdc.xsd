@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:funcionmarco="http://rm.administracion.es/emrm/entidad/actividad/cdc"
+	targetNamespace="http://rm.administracion.es/emrm/entidad/actividad/cdc">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD EMrm aplicables a
+			el CdC de
+			la ENTIDAD Actividad.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="emrm_entidad_actividad.xsd" />
+
+</xsd:schema>

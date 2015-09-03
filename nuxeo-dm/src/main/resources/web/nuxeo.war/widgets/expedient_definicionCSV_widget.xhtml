@@ -1,0 +1,28 @@
+<f:subview xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:a4j="https://ajax4jsf.dev.java.net/ajax"
+  xmlns:nxu="http://nuxeo.org/nxweb/util"
+  xmlns:nxdir="http://nuxeo.org/nxdirectory"
+  xmlns:c="http://java.sun.com/jstl/core"
+  xmlns:nxl="http://nuxeo.org/nxforms/layout" id="#{widget.id}">
+
+<a4j:outputPanel id="panel-definicion-csv" ajaxRendered="false">
+  <c:if test="#{widget.mode != 'create' and widget.mode != 'edit'}">
+	
+	<h:outputText value="#{field}" />
+    
+  </c:if>
+
+  <c:if test="#{widget.mode == 'create' or widget.mode == 'edit'}">
+
+	<h:inputText id="#{widget.id}_edit_def_csv" value="#{field}" rendered="#{rmUtilsActions.showCSV}" styleClass="dataInputText" required="true"/>     
+	<a4j:outputPanel ajaxRendered="true">
+      <h:message styleClass="errorMessage" for="#{widget.id}_edit_def_csv"
+        id="#{widget.id}_message" />
+    </a4j:outputPanel>
+    
+  </c:if>
+ 
+</a4j:outputPanel>
+
+</f:subview>

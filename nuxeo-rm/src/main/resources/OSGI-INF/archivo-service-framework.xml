@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+<component name="org.yerbabuena.rm.archivo.service.ArchivoService" version="1.0">
+
+  <documentation>
+  	Servicio dedicado a aportar las operaciones necesarias en el RM
+  	
+    @author <a href="mailto:vs@athento.com">Victor Sanchez</a>
+    
+  </documentation>
+  
+  <service>
+    <provide interface="es.rm.platform.api.services.ArchivoServicio"/>
+  </service>
+
+  <implementation class="es.rm.platform.core.services.ArchivoServicioImpl"/>
+  
+  <extension-point name="workflow">
+    <documentation>
+      La definición de un workflow en el RM necesita los siguientes datos:
+      
+      - id : Id del workflow definido en el gestor documental (Nuxeo)
+	
+      Examples:
+
+      <code>
+        <workflow id="nombre_workflow" />
+      </code>
+      
+      <!-- En el momento que se empiecen a implementar las disposiciones se asignará una clase que las maneje a este EP
+           de forma similar a 
+           
+           <workflow id="nombre_workflow">
+        		<handler class="es.disposiciones.MiInterfaz" />
+           </workflow>
+      -->
+
+    </documentation>
+    <object class="es.rm.platform.api.services.FlujoTrabajoDescriptor" />
+  </extension-point>
+ 
+</component>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:pub="http://rm.administracion.es/athento/publicacion"
+	targetNamespace="http://rm.administracion.es/athento/publicacion">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS PARA LA
+			PUBLICACION
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="base.xsd" />
+
+	<xsd:element name="publicaciones" type="pub:Tids" />
+	<xsd:complexType name="Tids">
+		<xsd:sequence>
+			<xsd:element name="id" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

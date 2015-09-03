@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:docsimple="http://rm.administracion.es/emrm/entidad/documento/documentosimple"
+	targetNamespace="http://rm.administracion.es/emrm/entidad/documento/documentosimple">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS para el
+			DOCUMENTO SIMPLE segun EMrm basado en EMGDE.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="emrm_entidad_documento.xsd" />
+
+
+	<xsd:element name="DocumentoEsencial" type="xsd:boolean" /><!-- EMrm.8.6 -->
+
+	<xsd:element name="Valoracion" type="xsd:string" />
+	<xsd:element name="TipodeDictamen" type="xsd:string" />
+	<xsd:element name="AccionDictaminada" type="xsd:string" />
+
+	<xsd:element name="SoporteOrigen" type="xsd:string" />
+	<xsd:element name="NombreFormato" type="xsd:string" /> <!-- Mapeado con NombreFormato del ENI documento-e -->
+	<xsd:element name="VersionFormato" type="xsd:string" />
+	<xsd:element name="Resolucion" type="xsd:string" />
+	<xsd:element name="DimensionesFisicas" type="xsd:integer" />
+	<xsd:element name="TamanoLogico" type="xsd:integer" />
+	<xsd:element name="Unidades" type="xsd:string" />
+
+	<xsd:element name="EstadoElaboracion" type="xsd:string" /> <!-- No mapea con ENI document-e, sino hay que trasladar valor en formalizacion -->
+	<xsd:element name="Prioridad" type="xsd:string" />
+
+	<xsd:element name="Algoritmo" type="xsd:string" />
+	<xsd:element name="Valor" type="docsimple:TValorCSV" /> <!-- Mapeado con ValorCSV del ENI documento-e -->
+	<xsd:complexType name="TValorCSV">
+		<xsd:sequence>
+			<xsd:element name="valorCSV" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="TipoFirma" type="docsimple:TTipoFirma" /> <!-- Mapeado con TipoFirma del ENI documento-e -->
+	<xsd:complexType name="TTipoFirma">
+		<xsd:sequence>
+			<xsd:element name="tipofirma" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="FormatoFirma" type="xsd:string" />
+	<xsd:element name="RolFirma" type="xsd:string" />
+
+	<xsd:element name="TipoDocumental" type="xsd:string" /> <!-- Mapeado con TipoDocumental del ENI documento-e -->
+	<xsd:element name="SubtipoDocumental" type="xsd:string" />
+
+	<xsd:element name="TipoRegistroEntrada" type="xsd:string" /> <!-- EMrm_DO.22.1 -->
+	<xsd:element name="IdentificadorRegistroEntrada" type="xsd:string" /> <!-- EMrm_DO.22.2 -->
+
+	<xsd:element name="TipoRegistroSalida" type="xsd:string" /> <!-- EMrm_DO.23.1 -->
+	<xsd:element name="IdentificadorRegistroSalida" type="xsd:string" /> <!-- EMrm_DO.23.2 -->
+
+	<xsd:element name="NombreFichero" type="xsd:string" default="" />
+	
+	<xsd:element name="AccionSobreLosMetadatos" type="xsd:string" />
+	<xsd:element name="UsuarioDeLaAccion" type="xsd:string" />
+	
+
+</xsd:schema>

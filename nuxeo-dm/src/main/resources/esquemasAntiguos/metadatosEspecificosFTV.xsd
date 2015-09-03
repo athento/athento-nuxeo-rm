@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:especftvdocmeta="http://administracionelectronica.gob.es/ENI/XSD/v1.0/documento-e/metadatos-especificos-traza/ftv" 
+	targetNamespace="http://administracionelectronica.gob.es/ENI/XSD/v1.0/documento-e/metadatos-especificos-traza/ftv"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD METADATOS ESPECIFICOS FICHA TECNICA VEHÍCULOS EN APLICACION TRAZA </xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:element name="metadatosGenericosTraza" type="especftvdocmeta:TipoMetadatosEspecificosFtv"/>
+	
+	<xsd:complexType name="TipoMetadatosEspecificosFtv">
+		<xsd:sequence>
+			<xsd:element name="NumeroIdentificacion" type="xsd:string"/>
+			<xsd:element name="Matricula" type="xsd:string"/>
+			<xsd:element name="Pais" type="xsd:string"/>
+			<xsd:element name="SegunLegislacionEuropea" type="xsd:boolean"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+		
+</xsd:schema>

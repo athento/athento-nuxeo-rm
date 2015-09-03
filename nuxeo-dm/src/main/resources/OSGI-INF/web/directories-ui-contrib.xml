@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<component name="es.rm.platform.DirectoryUIContrib">
+
+	<require>es.rm.platform.DirectoryContrib</require>
+
+	<extension target="org.nuxeo.ecm.directory.ui.DirectoryUIManager"
+		point="directories">
+
+		<directory name="tipoDocumental" layout="vocabulary"
+			sortField="label" />
+		<directory name="rolRelacion" layout="vocabulary" sortField="label" />
+		<directory name="soporteOrigen" layout="vocabulary"
+			sortField="label" />
+		<directory name="valorEstadoElaboracion" layout="vocabulary"
+			sortField="label" />
+		<directory name="tipoFirma" layout="vocabulary" sortField="label" />
+		<directory name="origen" layout="vocabulary" sortField="label" />
+		<directory name="valoresEntidad" layout="vocabulary"
+			sortField="label" />
+		<directory name="cicloVida" layout="vocabulary" sortField="label" />
+
+	</extension>
+</component>

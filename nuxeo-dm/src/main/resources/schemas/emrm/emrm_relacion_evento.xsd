@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:evento="http://rm.administracion.es/emrm/entidad/relacion/evento"
+	targetNamespace="http://rm.administracion.es/emrm/entidad/relacion/evento">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD EMrm aplicables al
+			EVENTO de la ENTIDAD RELACIONES.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="emrm_relacion.xsd" />
+
+	<xsd:element name="NombreElemento" type="xsd:string" />
+	<xsd:element name="ValorElementoAnterior" type="xsd:string" />
+
+</xsd:schema>

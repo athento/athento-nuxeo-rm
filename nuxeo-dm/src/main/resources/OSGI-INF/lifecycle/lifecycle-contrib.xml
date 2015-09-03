@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+
+<component name="es.rm.platform.LifecycleExtensions">
+
+	<extension target="org.nuxeo.ecm.core.lifecycle.LifeCycleService"
+		point="lifecycle">
+		<lifecycle name="documento" defaultInitial="creacion">
+			<transitions>
+				<transition name="aTramitacion" destinationState="tramitacion">
+				</transition>
+				<transition name="aVigencia" destinationState="vigencia">
+				</transition>
+				<transition name="aArchivo" destinationState="archivo">
+				</transition>
+				<transition name="aTransferencia" destinationState="transferencia">
+				</transition>
+				<transition name="aEliminado" destinationState="eliminado">
+				</transition>
+			</transitions>
+			<states>
+				<state name="creacion">
+					<transitions>
+						<transition>aTramitacion</transition>
+						<transition>aEliminado</transition>
+					</transitions>
+				</state>
+				<state name="tramitacion" initial="true">
+					<transitions>
+						<transition>aVigencia</transition>
+						<transition>aEliminado</transition>
+					</transitions>
+				</state>
+				<state name="vigencia">
+					<transitions>
+						<transition>aArchivo</transition>
+						<transition>aTramitacion</transition>
+						<transition>aEliminado</transition>
+					</transitions>
+				</state>
+				<state name="archivo">
+					<transitions>
+						<transition>aTransferencia</transition>
+						<transition>aEliminado</transition>
+					</transitions>
+				</state>
+				<state name="transferencia">
+					<transitions>
+						<transition>aEliminado</transition>
+					</transitions>
+				</state>
+				<state name="eliminado">
+					<transitions>
+						<transition>aVigencia</transition>
+						<transition>aTramitacion</transition>
+						<transition>aArchivo</transition>
+						<transition>aTransferencia</transition>
+					</transitions>
+				</state>
+			</states>
+		</lifecycle>
+
+		<lifecycle name="documento-Carpeta" defaultInitial="creacion">
+			<transitions>
+				<transition name="aCreacion" destinationState="creacion">
+				</transition>
+				<transition name="aVigencia" destinationState="vigencia">
+				</transition>
+				<transition name="aArchivo" destinationState="archivo">
+				</transition>
+				<transition name="aTransferencia" destinationState="transferencia">
+				</transition>
+				<transition name="aEliminado" destinationState="eliminado">
+				</transition>
+			</transitions>
+			<states>
+				<state name="creacion">
+					<transitions>
+						<transition>aVigencia</transition>
+						<transition>delete</transition>
+					</transitions>
+				</state>
+				<state name="vigencia">
+					<transitions>
+						<transition>aArchivo</transition>
+						<transition>aCreacion</transition>
+						<transition>delete</transition>
+					</transitions>
+				</state>
+				<state name="archivo">
+					<transitions>
+						<transition>aTransferencia</transition>
+						<transition>delete</transition>
+					</transitions>
+				</state>
+				<state name="transferencia">
+					<transitions>
+						<transition>delete</transition>
+					</transitions>
+				</state>
+				<state name="eliminado">
+					<transitions>
+						<transition>aVigencia</transition>
+						<transition>aTramitacion</transition>
+						<transition>aArchivo</transition>
+						<transition>aTransferencia</transition>
+					</transitions>
+				</state>
+			</states>
+		</lifecycle>
+	</extension>
+
+	<extension target="org.nuxeo.ecm.core.lifecycle.LifeCycleService"
+		point="types">
+		<types>
+			<type name="CdC">default</type>
+			<type name="OrganoFuncional">default</type>
+			<type name="FuncionMarco">default</type>
+			<type name="Funcion">default</type>
+			<type name="Actividad">default</type>
+			<type name="Serie">default</type>
+			<type name="Expediente">documento</type> <!-- Solo expediente tiene el ciclo de vida del documento aplicado -->
+			<type name="CAdD">documento-Carpeta</type> <!-- Solo capeta-expediente tiene el ciclo de vida del documento-Carpeta 
+				aplicado -->
+			<type name="DocSimple">default</type>
+			<type name="Entidad">default</type>
+			<type name="EntidadContenedora">default</type>
+			<type name="Reference">default</type>
+			<type name="Accion">default</type>
+			<type name="Institucion">default</type>
+			<type name="Organo">default</type>
+			<type name="Persona">default</type>
+			<type name="Dispositivo">default</type>
+			<type name="GrupoDeFondo">default</type>
+			<type name="Fondo">default</type>
+			<type name="Agregacion">default</type>
+			<type name="Normativa">default</type>
+			<type name="Procedimiento">default</type>
+			<type name="EventoGestionDocumentos">default</type>
+			<type name="Procedencia">default</type>
+			<type name="Email">default</type>
+		</types>
+	</extension>
+</component>

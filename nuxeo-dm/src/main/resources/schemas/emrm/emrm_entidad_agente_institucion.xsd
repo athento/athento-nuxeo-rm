@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:institucion="http://rm.administracion.es/emrm/entidad/agente/institucion"
+	targetNamespace="http://rm.administracion.es/emrm/entidad/agente/institucion">
+	<xsd:annotation>
+		<xsd:documentation xml:lang="es">XSD EMrm aplicables a
+			la INSTITUCION de la ENTIDAD Agente.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:include schemaLocation="emrm_entidad_agente.xsd" />
+	
+	<xsd:element name="CodificacionCooperacionInteradministrativa" type="xsd:string" /> <!-- EMrm_IN.27 -->
+
+</xsd:schema>
