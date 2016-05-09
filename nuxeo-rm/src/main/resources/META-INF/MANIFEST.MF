@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 1
 Bundle-Name: RM
 Bundle-SymbolicName: org.yerbabuena.project.rm;singleton:=true
 Bundle-Version: 1.0.0
-Bundle-Vendor: Yerbabuena
 Provide-Package: org.yerbabuena.project.rm
 Require-Bundle: org.yerbabuena.project.rm.metadatos
 Nuxeo-Component: OSGI-INF/core-types-contrib.xml,
@@ -22,3 +21,4 @@ Nuxeo-Component: OSGI-INF/core-types-contrib.xml,
  OSGI-INF/directories-contrib.xml,
  OSGI-INF/schedulers-contrib.xml,
  OSGI-INF/seamremote-contrib.xml
+Bundle-Vendor: Yerbabuena

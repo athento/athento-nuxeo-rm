@@ -12,7 +12,7 @@
 		<doctype name="Entidad" extends="Document">
 			<schema name="common" />
 			<schema name="dublincore" />
-			<facet name="Versionable" />
+			<schema name="uid" />
 		</doctype>
 
 		<doctype name="EntidadContenedora" extends="Entidad">

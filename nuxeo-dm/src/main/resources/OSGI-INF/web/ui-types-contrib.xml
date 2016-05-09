@@ -15,14 +15,12 @@
 			<default-view>view_documents</default-view>
 			<layouts mode="any">
 				<layout>heading</layout>
-				<layout>file</layout>
 			</layouts>
 			<layouts mode="edit">
 				<layout>heading</layout>
-				<layout>file</layout>
 			</layouts>
 			<layouts mode="view">
-				<layout>file</layout>
+                <layout>heading</layout>
 			</layouts>
 			<subtypes>
 				<type>Fondo</type>
@@ -39,14 +37,12 @@
 			<default-view>view_documents</default-view>
 			<layouts mode="any">
 				<layout>heading</layout>
-				<layout>file</layout>
 			</layouts>
 			<layouts mode="edit">
 				<layout>heading</layout>
-				<layout>file</layout>
 			</layouts>
 			<layouts mode="view">
-				<layout>file</layout>
+				<layout>heading</layout>
 			</layouts>
 			<subtypes>
 				<type>Serie</type>
@@ -63,17 +59,12 @@
 			<default-view>view_documents</default-view>
 			<layouts mode="any">
 				<layout>heading</layout>
-				<layout>file</layout>
-				<layout>Serie</layout>
 			</layouts>
 			<layouts mode="edit">
 				<layout>heading</layout>
-				<layout>file</layout>
-				<layout>Serie</layout>
 			</layouts>
 			<layouts mode="view">
-				<layout>file</layout>
-				<layout>Serie</layout>
+                <layout>heading</layout>
 			</layouts>
 			<subtypes>
 				<type>Expediente</type>
@@ -92,16 +83,14 @@
 			<layouts mode="any">
 				<layout>heading</layout>
 				<layout>file</layout>
-				<layout>DocSimple</layout>
 			</layouts>
 			<layouts mode="edit">
 				<layout>heading</layout>
 				<layout>file</layout>
-				<layout>DocSimple</layout>
 			</layouts>
 			<layouts mode="view">
+				<layout>heading</layout>
 				<layout>file</layout>
-				<layout>DocSimple</layout>
 			</layouts>
 		</type>
 
@@ -135,14 +124,12 @@
 			<default-view>view_documents</default-view>
 			<layouts mode="any">
 				<layout>heading</layout>
-				<layout>Expediente</layout>
 			</layouts>
 			<layouts mode="edit">
 				<layout>heading</layout>
-				<layout>Expediente</layout>
 			</layouts>
 			<layouts mode="view">
-				<layout>Expediente</layout>
+				<layout>heading</layout>
 			</layouts>
 			<subtypes>
 			    <type>DocSimple</type>
@@ -159,17 +146,12 @@
 			<default-view>view_documents</default-view>
 			<layouts mode="any">
 				<layout>heading</layout>
-				<layout>file</layout>
-				<layout>Expediente</layout>
 			</layouts>
 			<layouts mode="edit">
 				<layout>heading</layout>
-				<layout>file</layout>
-				<layout>Expediente</layout>
 			</layouts>
 			<layouts mode="view">
-				<layout>file</layout>
-				<layout>Expediente</layout>
+				<layout>heading</layout>
 			</layouts>
 			<subtypes>
 			    <type>DocSimple</type>
@@ -225,12 +207,6 @@
 		</type>
 
 		<type id="Workspace">
-			<subtypes>
-				<type>GrupoDeFondo</type>
-			</subtypes>
-		</type>
-
-		<type id="Folder">
 			<subtypes>
 				<type>GrupoDeFondo</type>
 			</subtypes>

@@ -546,7 +546,6 @@ public class ArchivoServicioImpl extends DefaultComponent implements
 		String tipoDocumento = documentoActual.getType();
 		boolean result = true;
 		try {
-			LOG.debug("Documento Actual : " + documentoActual.getTitle());
 			boolean continuar = true;
 			DocumentModel documentoAuxiliar = documentoActual;
 			/*
@@ -583,12 +582,7 @@ public class ArchivoServicioImpl extends DefaultComponent implements
 						tipoDocumento = documentoAuxiliar.getType();
 					}
 				} else if (tipoDocumento
-						.equals(ArchivoConstantes.TIPO_EXPEDIENTE)
-						|| tipoDocumento
-								.equals(ArchivoConstantes.TIPO_EXPEDIENTE_REA)
-						|| tipoDocumento
-								.equals(ArchivoConstantes.TIPO_EXPEDIENTE_RELE)) {
-
+						.equals(ArchivoConstantes.TIPO_EXPEDIENTE)) {
 					String estado = (String) documentoAuxiliar.getProperty(
 							ArchivoConstantes.ESQUEMA_CADD,
 							ArchivoConstantes.CAMPO_ESTADO_EXPEDIENTE_CADD);
@@ -601,11 +595,6 @@ public class ArchivoServicioImpl extends DefaultComponent implements
 								.getDocument(documentoAuxiliar.getParentRef());
 						tipoDocumento = documentoAuxiliar.getType();
 					}
-				} else if (UtilidadesArchivo
-						.esDocumentoDelCAdD(documentoActual)) {
-					documentoAuxiliar = sesion.getDocument(documentoAuxiliar
-							.getParentRef());
-					tipoDocumento = documentoAuxiliar.getType();
 				} else {
 					continuar = false;
 				}

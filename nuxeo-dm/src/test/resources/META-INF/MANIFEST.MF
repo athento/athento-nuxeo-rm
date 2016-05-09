@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 1
-Bundle-Name: RM Base DM Test
-Bundle-SymbolicName: es.rm.platform.dm.test;singleton:=true
-Bundle-Version: 1.0.0
-Bundle-Vendor: Yerbabuena
