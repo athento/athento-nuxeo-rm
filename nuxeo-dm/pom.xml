@@ -2,12 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>athento-nx-recordmanagement</artifactId>
+		<groupId>org.athento.nuxeo</groupId>
+		<version>3.0</version>
+	</parent>
+
 	<artifactId>athento-dm</artifactId>
-	<groupId>dm</groupId>
-	<version>2.7</version>
+	<groupId>org.athento.nuxeo</groupId>
 	<packaging>jar</packaging>
-	
-	<dependencies>
+    <name>Athento NX Document Management</name>
+    <description>Athento NX Document Management</description>
+
+
+    <dependencies>
 		<!-- Dependencias de NUXEO (el resto se consiguen por transitividad) -->
 		<dependency>
 			<groupId>org.nuxeo.ecm.core</groupId>
@@ -53,112 +62,4 @@
 		</dependency>
 	</dependencies>
 
-	<repositories>
-		<repository>
-			<id>public</id>
-			<url>http://maven.nuxeo.org/nexus/content/groups/public</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>public-snapshot</id>
-			<url>http://maven.nuxeo.org/nexus/content/groups/public-snapshot</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<updatePolicy>always</updatePolicy>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.8</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifestFile>
-							src/main/resources/META-INF/MANIFEST.MF
-						</manifestFile>
-					</archive>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-
-	<reporting>
-		<outputDirectory>target/site</outputDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-pmd-plugin</artifactId>
-				<version>2.4</version>
-				<configuration>
-					<linkXref>true</linkXref>
-					<minimumTokens>100</minimumTokens>
-					<targetJdk>1.5</targetJdk>
-					<excludes>
-						<exclude>**/*.properties</exclude>
-					</excludes>
-					<rulesets>
-						<ruleset>./reglas/pmd.xml</ruleset>
-					</rulesets>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>2.1</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<aggregate>true</aggregate>
-					<links>
-						<link>http://java.sun.com/j2se/1.6.0/api/</link>
-					</links>
-					<show>private</show>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>jdepend-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>javancss-maven-plugin</artifactId>
-				<version>2.0-beta-2</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jxr-plugin</artifactId>
-				<version>2.1</version>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>dashboard-maven-plugin</artifactId>
-				<version>1.0-SNAPSHOT</version>
-			</plugin>
-		</plugins>
-	</reporting>
 </project>

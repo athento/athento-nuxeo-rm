@@ -1,7 +1,23 @@
+<?xml version="1.0"?>
+
 <component name="es.rm.platform.ActionContrib">
 
-	<require>org.nuxeo.ecm.platform.userworkspace.actions
-	</require>
+    <require>es.rm.platform.entidad.documento.DoctypeContrib</require>
+	<require>org.nuxeo.ecm.platform.userworkspace.actions</require>
+
+
+    <extension target="org.nuxeo.ecm.platformDescriptor.actions.ActionService"
+               point="filters">
+        <filter id="create" append="true">
+            <rule grant="true">
+                <type>GrupoDeFondo</type>
+                <type>Fondo</type>
+                <type>Serie</type>
+                <type>Expediente</type>
+            </rule>
+        </filter>
+
+    </extension>
 
 	<extension target="org.nuxeo.ecm.platform.actions.ActionService"
 		point="actions">
@@ -58,5 +74,6 @@
 		</action>
 
 	</extension>
+
 
 </component>

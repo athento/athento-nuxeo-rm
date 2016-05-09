@@ -11,58 +11,47 @@
 			<subtypes>
 				<type>Fondo</type>
 			</subtypes>
-			<schema name="uid" />
 			<schema name="emrm_documento_grupofondo" />
-			<facet name="Folderish" />
 		</doctype>
 		<doctype name="Fondo" extends="GrupoDeFondo">
 			<subtypes>
 				<type>Serie</type>
 			</subtypes>
-			<schema name="uid" />
 			<schema name="emrm_documento_fondo" />
-			<facet name="Folderish" />
 		</doctype>
 		<doctype name="Serie" extends="Fondo">
 			<subtypes>
 				<type>Agregacion</type>
 				<type>Expediente</type>
 			</subtypes>
-			<schema name="uid" />
+            <facet name="SuperSpace"/>
 			<schema name="emrm_documento_serie" />
-			<facet name="Folderish" />
 		</doctype>
 		<doctype name="Agregacion" extends="Serie">
 			<subtypes>
 				<type>DocSimple</type>
 			</subtypes>
-			<schema name="uid" />
 			<schema name="eni_expedientee_oblig" />
 			<schema name="emrm_documento_expediente" />
 			<schema name="calendario_asociado" />
-			<facet name="Folderish" />
 		</doctype>
 		<doctype name="Expediente" extends="Serie">
 			<subtypes>
 				<type>DocSimple</type>
 			</subtypes>
-			<schema name="uid" />
 			<schema name="eni_expedientee_oblig" />
 			<schema name="emrm_documento_expediente" />
 			<schema name="calendario_asociado" />
 			<schema name="cadd" />
-			<facet name="Folderish" />
 		</doctype>
 		<doctype name="Carpeta" extends="EntidadContenedora">
 			<subtypes>
 				<type>DocSimple</type>
 			</subtypes>
-			<schema name="uid" />
+            <facet name="SuperSpace"/>
 			<schema name="emrm_documento_carpeta" />
-			<facet name="Folderish" />
 		</doctype>
 		<doctype name="DocSimple" extends="Entidad">
-			<schema name="uid" />
 			<schema name="file" />
 			<schema name="eni_documentoe_oblig" />
 			<schema name="eni_documentoe_metadatos" />
@@ -70,6 +59,10 @@
 			<schema name="eni_documentoe_firma" />
 			<schema name="emrm_documento_documentosimple" />
 			<facet name="Versionable" />
+			<facet name="Downloadable" />
+			<facet name="Publishable" />
+			<facet name="Commentable" />
+			<facet name="HasRelatedText" />
 		</doctype>
 
 	</extension>

@@ -237,18 +237,9 @@ public class ArchivoBean extends InputController implements Serializable {
 	 * 
 	 */
 	public boolean carpetaNoCerrada() {
-		/*
-		 * Conflicto con Checkstyle. No se pueden declarar como final los
-		 * m&eacute;todos de beans EJB que hagan uso de dependencias inyectadas,
-		 * ya que dichas dependencias toman el valor null.
-		 */
-		DocumentModel documentoActual = this.navigationContext
-				.getCurrentDocument();
-		boolean result = false;
-		result = this.servicioArchivo.carpetaNoCerrada(documentoActual,
+		return this.servicioArchivo.carpetaNoCerrada(this.navigationContext
+                        .getCurrentDocument(),
 				this.documentManager);
-		/*result=true;*/
-		return result;
 	}
 
 	/**
@@ -267,11 +258,7 @@ public class ArchivoBean extends InputController implements Serializable {
 			DocumentModel documentoActual = this.navigationContext
 					.getCurrentDocument();
 			if (documentoActual.getType().equals(
-					ArchivoConstantes.TIPO_EXPEDIENTE)
-					|| documentoActual.getType().equals(
-							ArchivoConstantes.TIPO_EXPEDIENTE_REA)
-					|| documentoActual.getType().equals(
-							ArchivoConstantes.TIPO_EXPEDIENTE_RELE)) {
+					ArchivoConstantes.TIPO_EXPEDIENTE)) {
 				String estado = (String) documentoActual.getProperty(
 						ArchivoConstantes.ESQUEMA_CADD,
 						ArchivoConstantes.CAMPO_ESTADO_EXPEDIENTE_CADD);
@@ -378,19 +365,21 @@ public class ArchivoBean extends InputController implements Serializable {
 				String estado = (String) documentoActual.getProperty(
 						ArchivoConstantes.ESQUEMA_CADD,
 						ArchivoConstantes.CAMPO_ESTADO_EXPEDIENTE_CADD);
-				result = estado
-						.equals(ArchivoConstantes.ESTADO_RETENIDO_CARPETA_DE_DOCUMENTOS)
-						|| estado.isEmpty();
+                if (estado != null) {
+                    result = estado
+                            .equals(ArchivoConstantes.ESTADO_RETENIDO_CARPETA_DE_DOCUMENTOS)
+                            || estado.isEmpty();
+                }
 			} else if (documentoActual.getType().equals(
 					ArchivoConstantes.TIPO_CARPETA_DE_DOCUMENTOS)) {
-
 				String estado = (String) documentoActual.getProperty(
 						ArchivoConstantes.ESQUEMA_CADD,
 						ArchivoConstantes.CAMPO_ESTADO_EXPEDIENTE_CADD);
-				result = estado
-						.equals(ArchivoConstantes.ESTADO_RETENIDO_CARPETA_DE_DOCUMENTOS)
-						|| estado.isEmpty();
-
+                if (estado != null) {
+                    result = estado
+                            .equals(ArchivoConstantes.ESTADO_RETENIDO_CARPETA_DE_DOCUMENTOS)
+                            || estado.isEmpty();
+                }
 			}
 		} catch (ClientException e) {
 			LOG.error(
@@ -410,7 +399,7 @@ public class ArchivoBean extends InputController implements Serializable {
 	public String eliminarCalendario(String docId) {
 		DocumentModel calendario;
 		try {
-			LOG.info("Eliminando calendario " + docId);
+			LOG.debug("Eliminando calendario " + docId);
 			calendario = documentManager.getDocument(new IdRef(docId));
 			if (calendario != null
 					&& !this.servicioArchivo.elementosAsociadosAlCalendario(

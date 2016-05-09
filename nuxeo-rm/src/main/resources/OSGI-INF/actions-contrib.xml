@@ -9,13 +9,7 @@
 	<extension target="org.nuxeo.ecm.platform.actions.ActionService"
 		point="actions">
 
-		<action id="newDocumentEnCdc" label="action.new.document" icon="/icons/action_add.gif"
-			type="fancybox">
-			<category>SUBVIEW_UPPER_LIST</category>
-			<properties>
-				<property name="include">/select_document_type.xhtml</property>
-			</properties>
-			<filter-id>contenidoEnCdC</filter-id>
+		<action id="newDocument">
 			<filter-id>carpetaNoCerrada</filter-id>
 		</action>
 
@@ -130,7 +124,6 @@
 					<condition>#{deleteActions.canDelete}</condition>
 				</rule>
 			</filter>
-			<filter-id>noContenidoEnCdC</filter-id>
 		</action>
 
 		<!-- Sobreescritura del botón de eliminar para el caso de calendarios de 
@@ -183,17 +176,13 @@
 		</action>
 
 		<!-- Sobre escribimos el botón de guardar cambios al editar ya hay que 
-			controlar cuando se incrementa una versión si el usuario quiere actualizar 
+			controlar cuando se incrementa una versión si el usuario quiere actualizar
 			todas las referencias a ese documento -->
 		<action id="EDIT_CURRENT_DOCUMENT" link="#{declararDocumentoE.guardarDocumento()}"
 			order="0" label="command.save">
 			<category>EDIT_DOCUMENT_FORM</category>
 		</action>
 
-		<!-- <action id="CLIPBOARD_PASTE" link="#{clipboardActions.pasteClipboard}" 
-			label="command.clipboard.paste" icon=""> <category>CURRENT_SELECTION_LIST</category> 
-			<filter id="canPastFromClipboard"> <rule grant="true"> <condition>#{clipboardActions.canPasteFromClipboard}</condition> 
-			</rule> </filter> <filter-id>noContenidoEnCdC</filter-id> </action> -->
 		<action id="CURRENT_SELECTION_DELETE" link="#{deleteActions.purgeSelection}"
 			label="command.deleteDocs" icon="" help="comand.deleteDocs.help"
 			confirm="if( !confirmDeleteDocumentsForever() ) return false;">
@@ -203,7 +192,6 @@
 					<condition>#{deleteActions.canPurge}</condition>
 				</rule>
 			</filter>
-			<filter-id>noContenidoEnCdC</filter-id>
 		</action>
 
 		<action id="CURRENT_SELECTION_UNDELETE" link="#{deleteActions.undeleteSelection}"
@@ -215,14 +203,12 @@
 					<condition>#{deleteActions.canPurge}</condition>
 				</rule>
 			</filter>
-			<filter-id>noContenidoEnCdC</filter-id>
 		</action>
 
 		<action id="CURRENT_SELECTION_COPY" link="#{clipboardActions.putSelectionInClipboard}"
 			label="command.clipboard.copy" icon="">
 			<category>CURRENT_SELECTION_LIST</category>
 			<filter-id>canCopyFromCurrentSelection</filter-id>
-			<filter-id>noContenidoEnCdC</filter-id>
 		</action>
 
 		<action id="CURRENT_SELECTION_ADDTOLIST" link="#{clipboardActions.putSelectionInDefaultWorkList}"
@@ -234,18 +220,12 @@
 					<type>Root</type>
 				</rule>
 			</filter>
-			<filter-id>noContenidoEnCdC</filter-id>
 		</action>
 
 		<action id="POPUP_COPY" link="javascript:doCopy" label="command.clipboard.copy"
 			icon="/icons/action_clipboard_copy.gif">
 			<category>POPUP</category>
 		</action>
-
-		<!-- <action id="POPUP_PASTE" link="javascript:doPaste" label="command.clipboard.paste" 
-			icon="/icons/action_paste_all.gif"> <category>POPUP</category> <filter id="canPastePopup"> 
-			<rule grant="true"> <condition> #{clipboardActions.getCanPasteFromClipboardInside(document)} 
-			</condition> </rule> </filter> <filter-id>noContenidoEnCdC</filter-id> </action> -->
 
 		<action id="POPUP_MOVE" link="javascript:doMove" label="command.clipboard.moveAll"
 			icon="/icons/action_move_all.gif">
@@ -257,7 +237,6 @@
 					</condition>
 				</rule>
 			</filter>
-			<!-- <filter-id>noContenidoEnCdC</filter-id> -->
 		</action>
 
 		<action id="POPUP_DEL" link="javascript:doDelete" label="command.trashDocs"
@@ -268,7 +247,6 @@
 					<condition>#{deleteActions.getCanDeleteItem(container)}</condition>
 				</rule>
 			</filter>
-			<filter-id>noContenidoEnCdC</filter-id>
 		</action>
 
 		<!-- Pestañas de administracion -->
@@ -371,19 +349,20 @@
 	<extension target="org.nuxeo.ecm.platform.actions.ActionService"
 		point="filters">
 
-		<filter id="create">
+		<filter id="create" append="true">
 			<rule grant="true">
-				<permission>AddChildren</permission>
-				<facet>Folderish</facet>
-				<type>Workspace</type>
-				<type>TemplateRoot</type>
-				<type>Section</type>
-				<type>Folder</type>
-				<type>OrderedFolder</type>
-				<type>TrazaExpediente</type>
-				<type>ExpedienteIndizado</type>
-				<type>CarpetaIndizada</type>
-				<!-- Eliminamos el Expediente -->
+                <type>CdC</type>
+                <type>OrganoFuncional</type>
+				<type>FuncionMarco</type>
+                <type>Funcion</type>
+                <type>Actividad</type>
+                <type>Accion</type>
+                <type>GrupoDeFondo</type>
+                <type>Fondo</type>
+                <type>Serie</type>
+                <type>Expediente</type>
+                <type>Agregacion</type>
+                <type>Carpeta</type>
 			</rule>
 		</filter>
 
@@ -405,25 +384,13 @@
 
 		<filter id="contenidoEnCdC">
 			<rule grant="true">
-				<type>Expediente</type>
-				<type>ExpedienteREA</type>
-				<type>ExpedienteRELE</type>
-				<type>Serie</type>
-				<type>Agregacion</type>
-				<type>Fondo</type>
-				<type>GrupoDeFondo</type>
-				<type>OrganoFuncional</type>
-				<type>FuncionMarco</type>
-				<type>Funcion</type>
-				<type>Actividad</type>
-				<type>Accion</type>
-				<!-- <type>CAdD</type> -->
+				<schema>calendario_asociado</schema>
 			</rule>
 		</filter>
 
 		<filter id="noContenidoEnCdC">
 			<rule grant="false">
-				<facet>elemento_cdc</facet>
+				<schema>calendario_asociado</schema>
 			</rule>
 		</filter>
 

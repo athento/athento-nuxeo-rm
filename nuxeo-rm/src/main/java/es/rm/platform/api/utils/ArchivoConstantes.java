@@ -43,9 +43,9 @@ public class ArchivoConstantes {
     public static final String TIPO_ACTIVIDAD = "Actividad";
 
     /**
-     * Constante para serie.
+     * Constante para accion.
      */
-    public static final String TIPO_SERIE = "Serie";
+    public static final String TIPO_ACCION = "Accion";
 
     /**
      * Constante para expediente.

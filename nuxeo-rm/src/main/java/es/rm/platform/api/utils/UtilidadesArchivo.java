@@ -513,13 +513,12 @@ public class UtilidadesArchivo {
 				|| tipo.equals(ArchivoConstantes.TIPO_ACTIVIDAD)) {
 			res = true;
 		}
-		if (tipo.equals(ArchivoConstantes.TIPO_SERIE)
-				|| tipo.equals(ArchivoConstantes.TIPO_EXPEDIENTE)
-				|| tipo.equals(ArchivoConstantes.TIPO_EXPEDIENTE_REA)
-				|| tipo.equals(ArchivoConstantes.TIPO_EXPEDIENTE_RELE)) {
+		if (tipo.equals(ArchivoConstantes.TIPO_ACCION)
+				|| tipo.equals(ArchivoConstantes.TIPO_EXPEDIENTE)) {
 
 			res = true;
 		}
+		LOG.info("documento " + documento.getName() + " es documento del CAdC ?" + res);
 		return res;
 	}
 
