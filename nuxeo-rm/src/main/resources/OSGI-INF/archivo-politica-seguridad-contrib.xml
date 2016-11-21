@@ -5,7 +5,7 @@
     point="policies">
  
     <policy name="politicaArchivo"
-      class="es.rm.platform.api.utils.ArchivoPoliticaSeguridad" order="0" />
+            class="org.athento.nuxeo.rm.api.utils.ArchivoPoliticaSeguridad" order="0" />
  
   </extension>
  

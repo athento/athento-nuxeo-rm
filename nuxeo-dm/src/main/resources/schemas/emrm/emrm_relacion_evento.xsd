@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns:evento="http://rm.administracion.es/emrm/entidad/relacion/evento"
-	targetNamespace="http://rm.administracion.es/emrm/entidad/relacion/evento">
+			xmlns:ats="http://www.athento.com/rm/schemas/entidad_relacion_evento"
+			targetNamespace="http://www.athento.com/rm/schemas/entidad_relacion_evento">
 	<xsd:annotation>
 		<xsd:documentation xml:lang="es">XSD EMrm aplicables al
 			EVENTO de la ENTIDAD RELACIONES.
 		</xsd:documentation>
 	</xsd:annotation>
 
-	<xsd:include schemaLocation="emrm_relacion.xsd" />
+	<xsd:element name="Jurisdiccion" type="xsd:string" />
+
+	<xsd:element name="ClasificacionENS" type="xsd:string" /> <!-- Bajo, Medio, Alto -->
+
+	<xsd:element name="TipoEntidad" type="xsd:string" />
+	<xsd:element name="Categoria" type="xsd:string" />
+
+	<xsd:element name="Identificador" type="xsd:string" /> <!-- Mapeado con Identificador para el esquema ENI -->
+	<xsd:element name="Nombre" type="xsd:string" />
+
+	<xsd:element name="FechaInicio" type="xsd:date" /> <!-- Mapeado con FechaApertura para Expediente-e y FechaCaptura del Documento-e -->
+	<xsd:element name="FechaFin" type="xsd:date" />
+
+	<xsd:element name="Descripcion" type="xsd:string" />
+
+	<xsd:element name="ModificacionMetadatos" type="xsd:string" />
 
 	<xsd:element name="NombreElemento" type="xsd:string" />
 	<xsd:element name="ValorElementoAnterior" type="xsd:string" />

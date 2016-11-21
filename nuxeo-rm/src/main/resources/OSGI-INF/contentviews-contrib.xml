@@ -78,61 +78,6 @@
 			</resultLayouts>
 
 		</contentView>
-		
-		<contentView name="busqueda_documentos_rm">
-
-			<title>label.contentview.document_content</title>
-			<translateTitle>true</translateTitle>
-			<showTitle>false</showTitle>
-
-			<genericPageProvider
-				class="es.rm.platform.api.services.DocumentoElectronicoPageProvider">
-				<property name="coreSession">#{documentManager}</property>
-				<whereClause docType="AdvancedSearch">
-					<predicate parameter="ecm:fulltext" operator="FULLTEXT">
-						<field schema="advanced_search" name="fulltext_all" />
-					</predicate>
-					<predicate parameter="dc:title" operator="FULLTEXT">
-						<field schema="advanced_search" name="title" />
-					</predicate>
-					<predicate parameter="ecm:path" operator="STARTSWITH">
-						<field schema="advanced_search" name="searchpath" />
-					</predicate>
-					<fixedPart>
-						ecm:isCheckedInVersion = 1 AND ecm:mixinType !=
-						'HiddenInNavigation'
-						AND ecm:currentLifeCycleState != 'deleted' AND
-						ecm:versionLabel !=
-						'0.0'
-					</fixedPart>
-				</whereClause>
-				<sort column="dc:title" ascending="true" />
-				<pageSize>20</pageSize>
-			</genericPageProvider>
-
-			<searchLayout name="documento_rm_referencia_search" />
-			<showFilterForm>true</showFilterForm>
-
-			<showPageSizeSelector>true</showPageSizeSelector>
-			<useGlobalPageSize>true</useGlobalPageSize>
-			<refresh>
-				<event>documentChanged</event>
-				<event>documentChildrenChanged</event>
-			</refresh>
-			<cacheKey>#{currentDocument.id}</cacheKey>
-			<cacheSize>10</cacheSize>
-
-			<resultLayouts>
-				<layout name="layout_search_rm_documents_listing" title="document_listing"
-					translateTitle="true" iconPath="/icons/document_listing_icon.png"
-					showCSVExport="true" showPDFExport="true" />
-			</resultLayouts>
-
-			<selectionList>CURRENT_SELECTION</selectionList>
-			<actions category="CURRENT_SELECTION_LIST" />
-
-		</contentView>
-
 
 	</extension>
 

@@ -15,8 +15,8 @@
 
 		</documentation>
 		<restletPlugin name="getUser"
-			class="es.rm.platform.restlet.GetUserRestlet" enabled="true"
-			useSeam="true">
+					   class="org.athento.nuxeo.rm.restlet.GetUserRestlet" enabled="true"
+					   useSeam="true">
 			<urlPatterns>
 				<urlPattern>/{username}/user</urlPattern>
 			</urlPatterns>
@@ -33,8 +33,8 @@
 
 		</documentation>
 		<restletPlugin name="newUser"
-			class="es.rm.platform.restlet.NewUserRestlet" enabled="true"
-			useSeam="true">
+					   class="org.athento.nuxeo.rm.restlet.NewUserRestlet" enabled="true"
+					   useSeam="true">
 			<urlPatterns>
 				<urlPattern>/{username}/newUser</urlPattern>
 			</urlPatterns>

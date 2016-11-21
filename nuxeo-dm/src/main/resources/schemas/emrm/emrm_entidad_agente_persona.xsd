@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns:persona="http://rm.administracion.es/emrm/entidad/agente/persona"
-	targetNamespace="http://rm.administracion.es/emrm/entidad/agente/persona">
+			xmlns:ats="http://www.athento.com/rm/schemas/entidad_agente_persona"
+			targetNamespace="http://www.athento.com/rm/schemas/entidad_agente_persona">
 	<xsd:annotation>
 		<xsd:documentation xml:lang="es">XSD EMrm aplicables a
 			la PERSONA de la ENTIDAD Agente.
 		</xsd:documentation>
 	</xsd:annotation>
 
-	<xsd:include schemaLocation="emrm_entidad_agente.xsd" />
+	<xsd:element name="Jurisdiccion" type="xsd:string" />
+
+	<xsd:element name="ClasificacionENS" type="xsd:string" /> <!-- Bajo, Medio, Alto -->
+
+	<xsd:element name="TipoEntidad" type="xsd:string" />
+	<xsd:element name="Categoria" type="xsd:string" />
+
+	<xsd:element name="Identificador" type="xsd:string" /> <!-- Mapeado con Identificador para el esquema ENI -->
+	<xsd:element name="Nombre" type="xsd:string" />
+
+	<xsd:element name="FechaInicio" type="xsd:date" /> <!-- Mapeado con FechaApertura para Expediente-e y FechaCaptura del Documento-e -->
+	<xsd:element name="FechaFin" type="xsd:date" />
+
+	<xsd:element name="Descripcion" type="xsd:string" />
+
+	<xsd:element name="ModificacionMetadatos" type="xsd:string" />
+
+	<xsd:element name="Permisos" type="xsd:string" />
+
+	<xsd:element name="TipoContacto" type="ats:TTipoContacto" />
+	<xsd:complexType name="TTipoContacto">
+		<xsd:sequence>
+			<xsd:element name="valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="DatoContacto" type="ats:TDatoContacto" />
+	<xsd:complexType name="TDatoContacto">
+		<xsd:sequence>
+			<xsd:element name="valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="Idioma" type="xsd:string" />
 
 	<xsd:element name="Puesto" type="xsd:string" />
 	
