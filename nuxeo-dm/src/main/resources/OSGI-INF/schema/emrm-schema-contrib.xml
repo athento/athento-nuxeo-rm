@@ -35,7 +35,7 @@
 		<schema name="emrm_documento_serie" src="schemas/emrm/emrm_entidad_documento_serie.xsd"
 			prefix="serie" />
 		<schema name="emrm_documento_expediente"
-			src="schemas/emrm/emrm_entidad_documento_expediente.xsd" prefix="expediente" /> <!-- Tambien usado para definir agregaciones -->
+			src="schemas/emrm/emrm_entidad_documento_expediente.xsd" prefix="expediente" />
 		<schema name="emrm_documento_carpeta"
 			src="schemas/emrm/emrm_entidad_documento_carpeta.xsd" prefix="carpeta" />
 		<schema name="emrm_documento_documentosimple"

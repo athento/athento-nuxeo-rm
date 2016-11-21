@@ -54,9 +54,7 @@
 		<doctype name="DocSimple" extends="Entidad">
 			<schema name="file" />
 			<schema name="eni_documentoe_oblig" />
-			<schema name="eni_documentoe_metadatos" />
-			<schema name="eni_documentoe_contenido" />
-			<schema name="eni_documentoe_firma" />
+			<schema name="emrm_documento_documentosimple" />
 			<schema name="emrm_documento_documentosimple" />
 			<facet name="Versionable" />
 			<facet name="Downloadable" />

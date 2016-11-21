@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns:funcionmarco="http://rm.administracion.es/emrm/entidad/actividad/funcionmarco"
-	targetNamespace="http://rm.administracion.es/emrm/entidad/actividad/funcionmarco">
+			xmlns:ats="http://www.athento.com/rm/schemas/entidad_actividad_funcionmarco"
+			targetNamespace="http://www.athento.com/rm/schemas/entidad_actividad_funcionmarco">
 	<xsd:annotation>
 		<xsd:documentation xml:lang="es">XSD emrm aplicables a
 			la FUNCION MARCO de
@@ -9,6 +9,25 @@
 		</xsd:documentation>
 	</xsd:annotation>
 
-	<xsd:include schemaLocation="emrm_entidad_actividad.xsd" />
+	<xsd:element name="Jurisdiccion" type="xsd:string" />
+
+	<xsd:element name="ClasificacionENS" type="xsd:string" /> <!-- Bajo, Medio, Alto -->
+
+	<xsd:element name="TipoEntidad" type="xsd:string" />
+	<xsd:element name="Categoria" type="xsd:string" />
+
+	<xsd:element name="Identificador" type="xsd:string" /> <!-- Mapeado con Identificador para el esquema ENI -->
+	<xsd:element name="Nombre" type="xsd:string" />
+
+	<xsd:element name="FechaInicio" type="xsd:date" /> <!-- Mapeado con FechaApertura para Expediente-e y FechaCaptura del Documento-e -->
+	<xsd:element name="FechaFin" type="xsd:date" />
+
+	<xsd:element name="Descripcion" type="xsd:string" />
+
+	<xsd:element name="ModificacionMetadatos" type="xsd:string" />
+
+	<xsd:element name="Permisos" type="xsd:string" />
+	<xsd:element name="TextoAdvertencia" type="xsd:string" />
+	<xsd:element name="SensibilidadDatosCaracterPersonal" type="xsd:string" />
 
 </xsd:schema>

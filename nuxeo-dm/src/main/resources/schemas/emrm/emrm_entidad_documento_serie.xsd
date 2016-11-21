@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns:serie="http://rm.administracion.es/emrm/entidad/documento/serie"
-	targetNamespace="http://rm.administracion.es/emrm/entidad/documento/serie">
+			xmlns:ats="http://www.athento.com/rm/schemas/entidad_documento_serie"
+			targetNamespace="http://www.athento.com/rm/schemas/entidad_documento_serie">
 
 	<xsd:annotation>
 		<xsd:documentation xml:lang="es">XSD METADATOS para la
@@ -9,7 +9,65 @@
 		</xsd:documentation>
 	</xsd:annotation>
 
-	<xsd:include schemaLocation="emrm_entidad_documento.xsd" />
+	<xsd:element name="Jurisdiccion" type="xsd:string" />
+
+	<xsd:element name="ClasificacionENS" type="xsd:string" /> <!-- Bajo, Medio, Alto -->
+
+	<xsd:element name="TipoEntidad" type="xsd:string" />
+	<xsd:element name="Categoria" type="xsd:string" />
+
+	<xsd:element name="Identificador" type="xsd:string" /> <!-- Mapeado con Identificador para el esquema ENI -->
+	<xsd:element name="Nombre" type="xsd:string" />
+
+	<xsd:element name="FechaInicio" type="xsd:date" /> <!-- Mapeado con FechaApertura para Expediente-e y FechaCaptura del Documento-e -->
+	<xsd:element name="FechaFin" type="xsd:date" />
+
+	<xsd:element name="Descripcion" type="xsd:string" />
+
+	<xsd:element name="ModificacionMetadatos" type="xsd:string" />
+
+	<xsd:element name="ClasificacionSeguridad" type="xsd:string" />
+
+	<xsd:element name="TextoAdvertencia" type="xsd:string" />
+	<xsd:element name="CategoriaAdvertencia" type="xsd:string" />
+
+	<xsd:element name="TipoDeAcceso" type="xsd:string" />
+	<xsd:element name="ClasificacionDeSeguridad" type="xsd:string" />
+	<xsd:element name="CondicionesAccesoUsoReutilizacion" type="xsd:string" />
+
+	<xsd:element name="SensibilidadDatosCaracterPersonal" type="xsd:string" />
+
+	<xsd:element name="Idioma" type="ats:TIdioma" />
+	<xsd:complexType name="TIdioma">
+		<xsd:sequence>
+			<xsd:element name="valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="TerminoPuntoAcceso" type="ats:TTerminoPuntoAcceso" />
+	<xsd:complexType name="TTerminoPuntoAcceso">
+		<xsd:sequence>
+			<xsd:element name="valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="IdPuntoAcceso" type="ats:TIdPuntoAcceso" />
+	<xsd:complexType name="TIdPuntoAcceso">
+		<xsd:sequence>
+			<xsd:element name="valor" maxOccurs="unbounded" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="DenominacionEstado" type="xsd:string" /> <!-- Mapeado con EstadoElaboracion del ENI documento-e -->
+	<xsd:element name="TipoCopia" type="xsd:string" />
+	<xsd:element name="Motivo" type="xsd:string" />
+
+	<!-- Ubicacion -->
+	<xsd:element name="Soporte" type="xsd:string" />
+	<xsd:element name="LocalizacionFisica" type="xsd:string" />
+	<xsd:element name="LocalizacionElectronica" type="xsd:string" />
+	<xsd:element name="NombreDispositivoAlmacenamiento" type="xsd:string" />
+	<xsd:element name="PerfilAlmacenamiento" type="xsd:string" />
 
 	<xsd:element name="DocumentoEsencial" type="xsd:boolean" default="false"/><!-- EMrm.8.6 -->
 	

@@ -18,7 +18,6 @@
 		<schema name="cadd" src="schemas/cadd.xsd" prefix="cadd" />
 		<schema name="dispositivos" src="schemas/dispositivos.xsd"
 			prefix="dispAlm" />
-
 	</extension>
 
 	<extension target="org.nuxeo.ecm.core.schema.TypeService"

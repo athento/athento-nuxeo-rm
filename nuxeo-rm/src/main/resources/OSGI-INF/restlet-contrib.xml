@@ -19,8 +19,8 @@
 
 		</documentation>
 		<restletPlugin name="changeState"
-			class="es.rm.platform.restlets.CambiarEstadoRestlet" enabled="true"
-			useSeam="true">
+					   class="org.athento.nuxeo.rm.restlets.CambiarEstadoRestlet" enabled="true"
+					   useSeam="true">
 			<urlPatterns>
 				<urlPattern>/{repo}/{docid}/changeState/{transition}</urlPattern>
 			</urlPatterns>
@@ -40,8 +40,8 @@
 
 		</documentation>
 		<restletPlugin name="getCdC"
-			class="es.rm.platform.restlets.ConsultaCdCRestlet" enabled="true"
-			useSeam="true">
+					   class="org.athento.nuxeo.rm.restlets.ConsultaCdCRestlet" enabled="true"
+					   useSeam="true">
 			<urlPatterns>
 				<urlPattern>/{repo}/{docid}/getCdC</urlPattern>
 			</urlPatterns>
@@ -58,8 +58,8 @@
 
 		</documentation>
 		<restletPlugin name="getDocumentHistory"
-			class="es.rm.platform.restlets.HistoricoDocumentoRestlet" enabled="true"
-			useSeam="true">
+					   class="org.athento.nuxeo.rm.restlets.HistoricoDocumentoRestlet" enabled="true"
+					   useSeam="true">
 			<urlPatterns>
 				<urlPattern>/{repo}/{docid}/getDocumentHistory</urlPattern>
 			</urlPatterns>
@@ -75,8 +75,8 @@
 
 		</documentation>
 		<restletPlugin name="lifeCyclePolicy"
-			class="es.rm.platform.restlets.ExtraerCicloDeVida" enabled="true"
-			useSeam="true">
+					   class="org.athento.nuxeo.rm.restlets.ExtraerCicloDeVida" enabled="true"
+					   useSeam="true">
 			<urlPatterns>
 				<urlPattern>/{repo}/{docid}/lifeCyclePolicy</urlPattern>
 			</urlPatterns>
@@ -92,8 +92,8 @@
 
 		</documentation>
 		<restletPlugin name="obtenerActividad"
-			class="es.rm.platform.restlets.ObtenerActividad" enabled="true"
-			useSeam="true">
+					   class="org.athento.nuxeo.rm.restlets.ObtenerActividad" enabled="true"
+					   useSeam="true">
 			<urlPatterns>
 				<urlPattern>/{repo}/{docid}/obtenerActividad</urlPattern>
 			</urlPatterns>
@@ -109,8 +109,8 @@
 
 		</documentation>
 		<restletPlugin name="obtenerAgente"
-			class="es.rm.platform.restlets.ObtenerAgente" enabled="true"
-			useSeam="true">
+					   class="org.athento.nuxeo.rm.restlets.ObtenerAgente" enabled="true"
+					   useSeam="true">
 			<urlPatterns>
 				<urlPattern>/{repo}/{docid}/obtenerAgente</urlPattern>
 			</urlPatterns>
@@ -126,8 +126,8 @@
 
 		</documentation>
 		<restletPlugin name="obtenerRegulacion"
-			class="es.rm.platform.restlets.ObtenerRegulacion" enabled="true"
-			useSeam="true">
+					   class="org.athento.nuxeo.rm.restlets.ObtenerRegulacion" enabled="true"
+					   useSeam="true">
 			<urlPatterns>
 				<urlPattern>/{repo}/{docid}/obtenerRegulacion</urlPattern>
 			</urlPatterns>
@@ -143,8 +143,8 @@
 
 		</documentation>
 		<restletPlugin name="obtenerRelacion"
-			class="es.rm.platform.restlets.ObtenerRelacion" enabled="true"
-			useSeam="true">
+					   class="org.athento.nuxeo.rm.restlets.ObtenerRelacion" enabled="true"
+					   useSeam="true">
 			<urlPatterns>
 				<urlPattern>/{repo}/{docid}/obtenerRelacion</urlPattern>
 			</urlPatterns>
@@ -160,8 +160,8 @@
 
 		</documentation>
 		<restletPlugin name="obtenerDocumento"
-			class="es.rm.platform.restlets.ObtenerDocumento" enabled="true"
-			useSeam="true">
+					   class="org.athento.nuxeo.rm.restlets.ObtenerDocumento" enabled="true"
+					   useSeam="true">
 			<urlPatterns>
 				<urlPattern>/{repo}/{docid}/obtenerDocumento</urlPattern>
 			</urlPatterns>

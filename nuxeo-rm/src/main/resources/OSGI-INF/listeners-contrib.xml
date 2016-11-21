@@ -4,11 +4,11 @@
 	<extension target="org.nuxeo.ecm.core.event.EventServiceComponent"
 		point="listener">
 		<listener name="CapturaEventoFinRetencion" async="false"
-			class="es.rm.platform.api.utils.CapturaEventoFinRetencion" priority="140">
+				  class="org.athento.nuxeo.rm.api.utils.CapturaEventoFinRetencion" priority="140">
 			<event>finPeriodoRetencion</event>
 		</listener>
 		<listener name="CreacionExpedienteEnAccionListener" async="false"
-			class="es.rm.platform.api.utils.CreacionExpedienteEnAccionListener" priority="140">
+				  class="org.athento.nuxeo.rm.api.utils.CreacionExpedienteEnAccionListener" priority="140">
 			<event>documentCreated</event>
 		</listener>
 	</extension>

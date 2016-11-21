@@ -4,7 +4,7 @@
 		point="listener">
 
 		<listener name="PropagacionMetadatosListener" async="false"
-			postCommit="false" class="es.rm.platform.api.utils.PropagarMetadatosListener"
+			postCommit="false" class="org.athento.nuxeo.rm.api.utils.PropagarMetadatosListener"
 			priority="100">
 			<event>documentCreated</event>
 		</listener>

@@ -10,10 +10,10 @@
   </documentation>
   
   <service>
-    <provide interface="es.rm.platform.api.services.ArchivoServicio"/>
+    <provide interface="org.athento.nuxeo.rm.api.services.ArchivoServicio"/>
   </service>
 
-  <implementation class="es.rm.platform.core.services.ArchivoServicioImpl"/>
+  <implementation class="org.athento.nuxeo.rm.core.services.ArchivoServicioImpl"/>
   
   <extension-point name="workflow">
     <documentation>
@@ -36,7 +36,7 @@
       -->
 
     </documentation>
-    <object class="es.rm.platform.api.services.FlujoTrabajoDescriptor" />
+    <object class="org.athento.nuxeo.rm.api.services.FlujoTrabajoDescriptor" />
   </extension-point>
  
 </component>
