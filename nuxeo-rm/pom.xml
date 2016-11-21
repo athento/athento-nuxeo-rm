@@ -35,15 +35,6 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- Dependencias para las clases de TEST -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.nuxeo.ecm.core</groupId> -->
-		<!-- <artifactId>nuxeo-core-storage-sql-test</artifactId> -->
-		<!-- <version>5.4.2</version> -->
-		<!-- <scope>test</scope> -->
-		<!-- </dependency> -->
-
-		<!-- Dependencias EXTERNAS -->
 		<dependency>
 			<groupId>javax.faces</groupId>
 			<artifactId>jsf-api</artifactId>
