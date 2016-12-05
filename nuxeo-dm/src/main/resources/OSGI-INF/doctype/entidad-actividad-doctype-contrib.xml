@@ -14,7 +14,6 @@
 			<schema name="emrm_actividad_cdc" />
 		</doctype>
 		<doctype name="OrganoFuncional" extends="CdC">
-			<facet name="elemento_cdc" />
 			<subtypes>
 				<type>FuncionMarco</type>
 			</subtypes>

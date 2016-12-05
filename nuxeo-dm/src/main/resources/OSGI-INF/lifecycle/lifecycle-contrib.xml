@@ -4,7 +4,7 @@
 
 	<extension target="org.nuxeo.ecm.core.lifecycle.LifeCycleService"
 		point="lifecycle">
-		<lifecycle name="documento" defaultInitial="creacion">
+		<lifecycle name="expediente" defaultInitial="creacion">
 			<transitions>
 				<transition name="aTramitacion" destinationState="tramitacion">
 				</transition>
@@ -58,55 +58,6 @@
 				</state>
 			</states>
 		</lifecycle>
-
-		<lifecycle name="documento-Carpeta" defaultInitial="creacion">
-			<transitions>
-				<transition name="aCreacion" destinationState="creacion">
-				</transition>
-				<transition name="aVigencia" destinationState="vigencia">
-				</transition>
-				<transition name="aArchivo" destinationState="archivo">
-				</transition>
-				<transition name="aTransferencia" destinationState="transferencia">
-				</transition>
-				<transition name="aEliminado" destinationState="eliminado">
-				</transition>
-			</transitions>
-			<states>
-				<state name="creacion">
-					<transitions>
-						<transition>aVigencia</transition>
-						<transition>delete</transition>
-					</transitions>
-				</state>
-				<state name="vigencia">
-					<transitions>
-						<transition>aArchivo</transition>
-						<transition>aCreacion</transition>
-						<transition>delete</transition>
-					</transitions>
-				</state>
-				<state name="archivo">
-					<transitions>
-						<transition>aTransferencia</transition>
-						<transition>delete</transition>
-					</transitions>
-				</state>
-				<state name="transferencia">
-					<transitions>
-						<transition>delete</transition>
-					</transitions>
-				</state>
-				<state name="eliminado">
-					<transitions>
-						<transition>aVigencia</transition>
-						<transition>aTramitacion</transition>
-						<transition>aArchivo</transition>
-						<transition>aTransferencia</transition>
-					</transitions>
-				</state>
-			</states>
-		</lifecycle>
 	</extension>
 
 	<extension target="org.nuxeo.ecm.core.lifecycle.LifeCycleService"
@@ -118,9 +69,7 @@
 			<type name="Funcion">default</type>
 			<type name="Actividad">default</type>
 			<type name="Serie">default</type>
-			<type name="Expediente">documento</type> <!-- Solo expediente tiene el ciclo de vida del documento aplicado -->
-			<type name="CAdD">documento-Carpeta</type> <!-- Solo capeta-expediente tiene el ciclo de vida del documento-Carpeta 
-				aplicado -->
+			<type name="Expediente">expediente</type>
 			<type name="DocSimple">default</type>
 			<type name="Entidad">default</type>
 			<type name="EntidadContenedora">default</type>

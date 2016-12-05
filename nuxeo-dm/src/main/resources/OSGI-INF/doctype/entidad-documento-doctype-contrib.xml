@@ -6,28 +6,30 @@
 
 	<extension target="org.nuxeo.ecm.core.schema.TypeService"
 		point="doctype">
-
 		<doctype name="GrupoDeFondo" extends="EntidadContenedora">
 			<subtypes>
 				<type>Fondo</type>
 			</subtypes>
 			<schema name="emrm_documento_grupofondo" />
 		</doctype>
-		<doctype name="Fondo" extends="GrupoDeFondo">
+		<doctype name="Fondo" extends="EntidadContenedora">
 			<subtypes>
 				<type>Serie</type>
 			</subtypes>
 			<schema name="emrm_documento_fondo" />
+			<schema name="emrm_documento_grupofondo" />
 		</doctype>
-		<doctype name="Serie" extends="Fondo">
+		<doctype name="Serie" extends="EntidadContenedora">
 			<subtypes>
 				<type>Agregacion</type>
 				<type>Expediente</type>
 			</subtypes>
             <facet name="SuperSpace"/>
 			<schema name="emrm_documento_serie" />
+			<schema name="emrm_documento_fondo" />
+			<schema name="emrm_documento_grupofondo" />
 		</doctype>
-		<doctype name="Agregacion" extends="Serie">
+		<doctype name="Agregacion" extends="EntidadContenedora">
 			<subtypes>
 				<type>DocSimple</type>
 			</subtypes>
@@ -35,7 +37,7 @@
 			<schema name="emrm_documento_expediente" />
 			<schema name="calendario_asociado" />
 		</doctype>
-		<doctype name="Expediente" extends="Serie">
+		<doctype name="Expediente" extends="EntidadContenedora">
 			<subtypes>
 				<type>DocSimple</type>
 			</subtypes>
@@ -62,7 +64,6 @@
 			<facet name="Commentable" />
 			<facet name="HasRelatedText" />
 		</doctype>
-
 	</extension>
 
 </component>

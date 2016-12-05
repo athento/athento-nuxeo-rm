@@ -19,23 +19,10 @@
 			<facet name="Folderish" />
 		</doctype>
 
-		<doctype name="Reference" extends="Document">
+		<doctype name="Referencia" extends="Document">
 			<schema name="common" />
 			<schema name="dublincore" />
 			<schema name="referencia" />
-		</doctype>
-
-		<doctype name="Email" extends="Document">
-			<schema name="common" />
-			<schema name="file" />
-			<schema name="dublincore" />
-			<schema name="uid" />
-			<schema name="email" />
-			<facet name="Downloadable" />
-			<facet name="Versionable" />
-			<facet name="Publishable" />
-			<facet name="Commentable" />
-			<facet name="HasRelatedText" />
 		</doctype>
 
 	</extension>

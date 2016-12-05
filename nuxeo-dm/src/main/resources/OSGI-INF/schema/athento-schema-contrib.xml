@@ -9,10 +9,6 @@
 		point="schema">
 		<schema name="referencia" src="schemas/athento/athento_referencia.xsd"
 			prefix="ref" />
-		<schema name="publicacion" src="schemas/athento/athento_publicacion.xsd"
-			prefix="pub" />
-		<schema name="email" src="schemas/athento/email.xsd" 
-			prefix="email" />
 	</extension>
 
 </component>
