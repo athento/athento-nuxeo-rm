@@ -11,12 +11,6 @@
 			<java>${bundle.fileName}</java>
 		</module>
 	</extension>
-	
-	<!--  
-	<extension target="pages#PAGES">
-		<page view-id="/nxstartup.xhtml" action="#{rmStartupHelper.goHome()}" />
-	</extension>
-	-->
 
 	<install>
 		<unzip from="${bundle.fileName}" to="/" prefix="web">

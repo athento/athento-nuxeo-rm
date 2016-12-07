@@ -24,7 +24,6 @@
 				<type>Agregacion</type>
 				<type>Expediente</type>
 			</subtypes>
-            <facet name="SuperSpace"/>
 			<schema name="emrm_documento_serie" />
 			<schema name="emrm_documento_fondo" />
 			<schema name="emrm_documento_grupofondo" />
@@ -35,7 +34,6 @@
 			</subtypes>
 			<schema name="eni_expedientee_oblig" />
 			<schema name="emrm_documento_expediente" />
-			<schema name="calendario_asociado" />
 		</doctype>
 		<doctype name="Expediente" extends="EntidadContenedora">
 			<subtypes>
@@ -43,20 +41,16 @@
 			</subtypes>
 			<schema name="eni_expedientee_oblig" />
 			<schema name="emrm_documento_expediente" />
-			<schema name="calendario_asociado" />
-			<schema name="cadd" />
 		</doctype>
 		<doctype name="Carpeta" extends="EntidadContenedora">
 			<subtypes>
 				<type>DocSimple</type>
 			</subtypes>
-            <facet name="SuperSpace"/>
 			<schema name="emrm_documento_carpeta" />
 		</doctype>
 		<doctype name="DocSimple" extends="Entidad">
 			<schema name="file" />
 			<schema name="eni_documentoe_oblig" />
-			<schema name="emrm_documento_documentosimple" />
 			<schema name="emrm_documento_documentosimple" />
 			<facet name="Versionable" />
 			<facet name="Downloadable" />
