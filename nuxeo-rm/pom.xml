@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>athento-nx-recordmanagement</artifactId>
 		<groupId>org.athento.nuxeo</groupId>
-		<version>4.0-SNAPSHOT</version>
+		<version>5.0-SNAPSHOT</version>
 	</parent>
 
 	<groupId>org.athento.nuxeo</groupId>
