@@ -6,7 +6,7 @@
 	<parent>
 		<artifactId>athento-nx-recordmanagement</artifactId>
 		<groupId>org.athento.nuxeo</groupId>
-		<version>4.0-SNAPSHOT</version>
+		<version>4.0</version>
 	</parent>
 
 	<artifactId>athento-dm</artifactId>
@@ -53,5 +53,36 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.athento.nuxeo.plugin</groupId>
+				<artifactId>athento-nx-single-addon</artifactId>
+				<version>1.0</version>
+				<configuration>
+					<name>${project.artifactId}</name>
+					<version>${project.version}</version>
+					<properties>
+						<url>http://www.athento.com</url>
+						<title>${project.name}</title>
+						<description>${project.description}</description>
+						<platform>cap-7.10</platform>
+					</properties>
+					<outputDir>addon</outputDir>
+				</configuration>
+				<executions>
+					<execution>
+						<id>addon-generation</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
     
 </project>
