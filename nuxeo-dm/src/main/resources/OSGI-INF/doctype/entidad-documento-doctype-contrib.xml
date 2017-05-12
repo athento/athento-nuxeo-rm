@@ -27,6 +27,8 @@
 			<schema name="emrm_documento_serie" />
 			<schema name="emrm_documento_fondo" />
 			<schema name="emrm_documento_grupofondo" />
+			<facet name="UITypesLocalConfiguration"/>
+            <facet name="SuperSpace" />
 		</doctype>
 		<doctype name="Agregacion" extends="EntidadContenedora">
 			<subtypes>
