@@ -1,57 +1,86 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<artifactId>athento-nx-recordmanagement</artifactId>
-		<groupId>org.athento.nuxeo</groupId>
-		<version>5.0-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <artifactId>athento-nx-recordmanagement</artifactId>
+        <groupId>org.athento.nuxeo</groupId>
+        <version>5.0-SNAPSHOT</version>
+    </parent>
 
-	<artifactId>athento-dm</artifactId>
-	<groupId>org.athento.nuxeo</groupId>
-	<packaging>jar</packaging>
+    <artifactId>athento-dm</artifactId>
+    <groupId>org.athento.nuxeo</groupId>
+    <packaging>jar</packaging>
     <name>Athento NX Document Management</name>
     <description>Athento NX Document Management</description>
 
     <dependencies>
-		<dependency>
-			<groupId>org.nuxeo.ecm.core</groupId>
-			<artifactId>nuxeo-core</artifactId>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.nuxeo.ecm.platform</groupId>
-			<artifactId>nuxeo-platform-webapp-base</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.nuxeo.runtime</groupId>
-			<artifactId>nuxeo-runtime-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>commons-logging</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>1.1</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.faces</groupId>
-			<artifactId>jsf-api</artifactId>
-			<version>1.2_13</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.nuxeo.runtime</groupId>
-			<artifactId>nuxeo-runtime-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.nuxeo.ecm.core</groupId>
-			<artifactId>nuxeo-core-storage-sql-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-	</dependencies>
-    
+        <dependency>
+            <groupId>org.nuxeo.ecm.core</groupId>
+            <artifactId>nuxeo-core</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.nuxeo.ecm.platform</groupId>
+            <artifactId>nuxeo-platform-webapp-base</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.nuxeo.runtime</groupId>
+            <artifactId>nuxeo-runtime-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>1.2_13</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.nuxeo.runtime</groupId>
+            <artifactId>nuxeo-runtime-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.nuxeo.ecm.core</groupId>
+            <artifactId>nuxeo-core-storage-sql-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.athento.nuxeo.plugin</groupId>
+                <artifactId>athento-nx-single-addon</artifactId>
+                <version>1.0</version>
+                <configuration>
+                    <name>${project.artifactId}</name>
+                    <version>${project.version}</version>
+                    <properties>
+                        <url>http://www.athento.com</url>
+                        <title>${project.name}</title>
+                        <description>${project.description}</description>
+                        <platform>cap-7.10</platform>
+                    </properties>
+                    <outputDir>addon</outputDir>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>addon-generation</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>
