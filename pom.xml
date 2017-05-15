@@ -21,7 +21,7 @@
 				<artifactId>nuxeo-distribution</artifactId>
 				<scope>import</scope>
 				<type>pom</type>
-				<version>7.10</version>
+				<version>6.0-HF21</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -159,7 +159,7 @@
                             <url>http://www.athento.com</url>
                             <title>${project.name}</title>
                             <description>${project.description}</description>
-                            <platform>cap-7.10</platform>
+                            <platform>cap-6.0</platform>
                         </properties>
                         <outputDir>addon</outputDir>
                     </configuration>
