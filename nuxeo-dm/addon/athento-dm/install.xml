@@ -1,0 +1,6 @@
+<!-- Generated from Athento Single Addon Plugin. More information at http://doc.nuxeo.com/x/IgIz -->
+<install>
+
+  <copy dir="${package.root}/plugins" todir="${env.home}/plugins/" overwrite="true"/>
+
+</install>

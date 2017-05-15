@@ -1,0 +1,40 @@
+<!-- Generated from Athento Single Addon Plugin. More information at http://doc.nuxeo.com/x/IgIz -->
+<package type="addon" name="athento-dm" version="4.1">
+    <title>Athento NX Document Management</title>
+    <description>
+        Athento NX Document Management
+    </description>
+    <home-page>http://www.athento.com</home-page>
+    <vendor>Athento</vendor>
+    <installer restart="true"/>
+    <uninstaller restart="true"/>
+    <hotreload-support>false</hotreload-support>
+    <require-terms-and-conditions-acceptance>false</require-terms-and-conditions-acceptance>
+    <nuxeo-validation>none</nuxeo-validation>
+    <!-- <nuxeo-validation>inprocess</nuxeo-validation> -->
+    <!-- <nuxeo-validation>primary_validation</nuxeo-validation> -->
+    <!-- <nuxeo-validation>nuxeo_certified</nuxeo-validation> -->
+    <!-- <production-state>proto</production-state> -->
+    <production-state>testing</production-state>
+    <!-- <production-state>production_ready</production-state> -->
+    <supported>false</supported>
+    <platforms>
+        <platform>cap-6.0</platform>
+    </platforms>
+    <!-- Dependencies on other packages -->
+    <!-- <dependencies> -->
+    <!-- <package>:6.0</package> -->
+    <!-- <package>another-package:1.0.0:1.0.0</package> -->
+    <!-- </dependencies> -->
+
+    <!-- Conflicts with other packages -->
+    <!-- <conflicts> -->
+    <!-- <package>a-conflicting-package:1.0.0:1.0.0</package> -->
+    <!-- </conflicts> -->
+    <!-- Provides features of other packages -->
+    <!-- <provides> -->
+    <!-- <package>an-embedded-package:1.0.0:1.0.0</package> -->
+    <!-- </provides> -->
+    <license>LGPL 2.1</license>
+    <license-url>http://www.gnu.org/licenses/lgpl-2.1.html</license-url>
+</package>
