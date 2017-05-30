@@ -13,6 +13,9 @@
 			<schema name="common" />
 			<schema name="dublincore" />
 			<schema name="uid" />
+			<schema name="emrm_relacion_evento" />
+			<schema name="emrm_relacion_procedencia" />
+			<schema name="emrm_relacion_procedencia_ids" />
 		</doctype>
 
 		<doctype name="EntidadContenedora" extends="Entidad">
